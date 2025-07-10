@@ -1,0 +1,1447 @@
+﻿{
+  "paragraphs": [
+    {
+      "user": "anonymous",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://10.0.5.2:4040/jobs/job?id=44",
+              "$$hashKey": "object:4556"
+            },
+            {
+              "jobUrl": "http://10.0.5.2:4040/jobs/job?id=45",
+              "$$hashKey": "object:4557"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1752105501085_930795964",
+      "id": "paragraph_1752105501085_930795964",
+      "dateCreated": "2025-07-09T23:58:21+0000",
+      "status": "FINISHED",
+      "focus": true,
+      "$$hashKey": "object:219",
+      "text": "val dfWeather = spark\r\n  .read\r\n  .option(\"header\", true)\r\n  .option(\"sep\", \",\")\r\n  .option(\"inferSchema\", true)\r\n  .csv(\"/workspace/Primer-parcial---segundo-bimestre/CarpetaCVS/weatherHistory.csv\")\r\n  ",
+      "dateUpdated": "2025-07-10T01:28:32+0000",
+      "dateFinished": "2025-07-10T01:28:33+0000",
+      "dateStarted": "2025-07-10T01:28:32+0000",
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\u001b[1m\u001b[34mdfWeather\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.DataFrame\u001b[0m = [Formatted Date: timestamp, Summary: string ... 10 more fields]\n"
+          }
+        ]
+      }
+    },
+    {
+      "user": "anonymous",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://10.0.5.2:4040/jobs/job?id=46",
+              "$$hashKey": "object:4613"
+            },
+            {
+              "jobUrl": "http://10.0.5.2:4040/jobs/job?id=47",
+              "$$hashKey": "object:4614"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1752105613892_160637631",
+      "id": "paragraph_1752105613892_160637631",
+      "dateCreated": "2025-07-10T00:00:13+0000",
+      "status": "FINISHED",
+      "focus": true,
+      "$$hashKey": "object:380",
+      "text": "print(s\"Registros(filas): ${dfWeather.count}, Variables (columnas): ${dfWeather.columns.length}\")\r\n",
+      "dateUpdated": "2025-07-10T01:28:36+0000",
+      "dateFinished": "2025-07-10T01:28:37+0000",
+      "dateStarted": "2025-07-10T01:28:36+0000",
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "Registros(filas): 96453, Variables (columnas): 12"
+          }
+        ]
+      }
+    },
+    {
+      "user": "anonymous",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1752105692373_811328630",
+      "id": "paragraph_1752105692373_811328630",
+      "dateCreated": "2025-07-10T00:01:32+0000",
+      "status": "FINISHED",
+      "focus": true,
+      "$$hashKey": "object:518",
+      "text": "import org.apache.spark.sql.types._\r\nimport org.apache.spark.sql.functions._\r\n\r\nval numericCols = dfWeather.schema.fields.filter {\r\n  case StructField(_, IntegerType | LongType | FloatType | DoubleType | ShortType | DecimalType(), _, _) => true\r\n  case _ => false\r\n}.map(_.name)\r\n",
+      "dateUpdated": "2025-07-10T01:28:39+0000",
+      "dateFinished": "2025-07-10T01:28:39+0000",
+      "dateStarted": "2025-07-10T01:28:39+0000",
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "import org.apache.spark.sql.types._\nimport org.apache.spark.sql.functions._\n\u001b[1m\u001b[34mnumericCols\u001b[0m: \u001b[1m\u001b[32mArray[String]\u001b[0m = Array(Temperature (C), Apparent Temperature (C), Humidity, Wind Speed (km/h), Wind Bearing (degrees), Visibility (km), Loud Cover, Pressure (millibars))\n"
+          }
+        ]
+      }
+    },
+    {
+      "user": "anonymous",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://10.0.5.2:4040/jobs/job?id=48",
+              "$$hashKey": "object:4716"
+            },
+            {
+              "jobUrl": "http://10.0.5.2:4040/jobs/job?id=49",
+              "$$hashKey": "object:4717"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1752106153593_1805512729",
+      "id": "paragraph_1752106153593_1805512729",
+      "dateCreated": "2025-07-10T00:09:13+0000",
+      "status": "FINISHED",
+      "focus": true,
+      "$$hashKey": "object:858",
+      "text": "dfWeather.select(numericCols.map(col): _*).describe().show\r\n",
+      "dateUpdated": "2025-07-10T01:28:46+0000",
+      "dateFinished": "2025-07-10T01:28:47+0000",
+      "dateStarted": "2025-07-10T01:28:46+0000",
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "+-------+-------------------+------------------------+-------------------+------------------+----------------------+------------------+----------+--------------------+\n|summary|    Temperature (C)|Apparent Temperature (C)|           Humidity| Wind Speed (km/h)|Wind Bearing (degrees)|   Visibility (km)|Loud Cover|Pressure (millibars)|\n+-------+-------------------+------------------------+-------------------+------------------+----------------------+------------------+----------+--------------------+\n|  count|              96453|                   96453|              96453|             96453|                 96453|             96453|     96453|               96453|\n|   mean| 11.932678437511868|      10.855028874166726| 0.7348989663358906|10.810640140793208|    187.50923247592092|10.347324929237148|       0.0|  1003.2359558541606|\n| stddev|   9.55154632065698|       10.69684739211911|0.19547273906721474| 6.913571012591965|    107.38342838070518| 4.192123191422759|       0.0|   116.9699056825797|\n|    min|-21.822222222222223|     -27.716666666666665|                0.0|               0.0|                   0.0|               0.0|       0.0|                 0.0|\n|    max|  39.90555555555555|       39.34444444444444|                1.0|63.852599999999995|                 359.0|              16.1|       0.0|             1046.38|\n+-------+-------------------+------------------------+-------------------+------------------+----------------------+------------------+----------+--------------------+\n\n"
+          }
+        ]
+      }
+    },
+    {
+      "user": "anonymous",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://10.0.5.2:4040/jobs/job?id=50",
+              "$$hashKey": "object:4774"
+            },
+            {
+              "jobUrl": "http://10.0.5.2:4040/jobs/job?id=51",
+              "$$hashKey": "object:4775"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1752106255839_1073980363",
+      "id": "paragraph_1752106255839_1073980363",
+      "dateCreated": "2025-07-10T00:10:55+0000",
+      "status": "FINISHED",
+      "focus": true,
+      "$$hashKey": "object:1076",
+      "text": "dfWeather.select(numericCols.map(col): _*).summary(\"stddev\", \"25%\").show\r\n",
+      "dateUpdated": "2025-07-10T01:28:50+0000",
+      "dateFinished": "2025-07-10T01:28:50+0000",
+      "dateStarted": "2025-07-10T01:28:50+0000",
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "+-------+-----------------+------------------------+-------------------+-----------------+----------------------+-----------------+----------+--------------------+\n|summary|  Temperature (C)|Apparent Temperature (C)|           Humidity|Wind Speed (km/h)|Wind Bearing (degrees)|  Visibility (km)|Loud Cover|Pressure (millibars)|\n+-------+-----------------+------------------------+-------------------+-----------------+----------------------+-----------------+----------+--------------------+\n| stddev| 9.55154632065698|       10.69684739211911|0.19547273906721474|6.913571012591965|    107.38342838070518|4.192123191422759|       0.0|   116.9699056825797|\n|    25%|4.688888888888887|       2.311111111111109|                0.6|5.828200000000001|                 116.0|           8.3398|       0.0|              1011.9|\n+-------+-----------------+------------------------+-------------------+-----------------+----------------------+-----------------+----------+--------------------+\n\n"
+          }
+        ]
+      }
+    },
+    {
+      "user": "anonymous",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://10.0.5.2:4040/jobs/job?id=52",
+              "$$hashKey": "object:4852"
+            },
+            {
+              "jobUrl": "http://10.0.5.2:4040/jobs/job?id=53",
+              "$$hashKey": "object:4853"
+            },
+            {
+              "jobUrl": "http://10.0.5.2:4040/jobs/job?id=54",
+              "$$hashKey": "object:4854"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1752106324181_1762096242",
+      "id": "paragraph_1752106324181_1762096242",
+      "dateCreated": "2025-07-10T00:12:04+0000",
+      "status": "FINISHED",
+      "focus": true,
+      "$$hashKey": "object:1270",
+      "text": "dfWeather.select(numericCols.map(col): _*).summary(\"count\", \"count_distinct\").show()\r\n",
+      "dateUpdated": "2025-07-10T01:28:54+0000",
+      "dateFinished": "2025-07-10T01:28:55+0000",
+      "dateStarted": "2025-07-10T01:28:54+0000",
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "+--------------+---------------+------------------------+--------+-----------------+----------------------+---------------+----------+--------------------+\n|       summary|Temperature (C)|Apparent Temperature (C)|Humidity|Wind Speed (km/h)|Wind Bearing (degrees)|Visibility (km)|Loud Cover|Pressure (millibars)|\n+--------------+---------------+------------------------+--------+-----------------+----------------------+---------------+----------+--------------------+\n|         count|          96453|                   96453|   96453|            96453|                 96453|          96453|     96453|               96453|\n|count_distinct|           7574|                    8984|      90|             2484|                   360|            949|         1|                4979|\n+--------------+---------------+------------------------+--------+-----------------+----------------------+---------------+----------+--------------------+\n\n"
+          }
+        ]
+      }
+    },
+    {
+      "user": "anonymous",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1752106369156_1630301073",
+      "id": "paragraph_1752106369156_1630301073",
+      "dateCreated": "2025-07-10T00:12:49+0000",
+      "status": "FINISHED",
+      "focus": true,
+      "$$hashKey": "object:1411",
+      "text": "val dateCols = dfWeather.schema.fields.collect {\r\n  case StructField(name, DateType, _, _) => name\r\n}\r\n\r\n",
+      "dateUpdated": "2025-07-10T01:28:58+0000",
+      "dateFinished": "2025-07-10T01:28:58+0000",
+      "dateStarted": "2025-07-10T01:28:58+0000",
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\u001b[1m\u001b[34mdateCols\u001b[0m: \u001b[1m\u001b[32mArray[String]\u001b[0m = Array()\n"
+          }
+        ]
+      }
+    },
+    {
+      "user": "anonymous",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1752107657039_1663190854",
+      "id": "paragraph_1752107657039_1663190854",
+      "dateCreated": "2025-07-10T00:34:17+0000",
+      "status": "FINISHED",
+      "focus": true,
+      "$$hashKey": "object:1858",
+      "text": "dfWeather.printSchema()",
+      "dateUpdated": "2025-07-10T01:29:02+0000",
+      "dateFinished": "2025-07-10T01:29:02+0000",
+      "dateStarted": "2025-07-10T01:29:02+0000",
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "root\n |-- Formatted Date: timestamp (nullable = true)\n |-- Summary: string (nullable = true)\n |-- Precip Type: string (nullable = true)\n |-- Temperature (C): double (nullable = true)\n |-- Apparent Temperature (C): double (nullable = true)\n |-- Humidity: double (nullable = true)\n |-- Wind Speed (km/h): double (nullable = true)\n |-- Wind Bearing (degrees): double (nullable = true)\n |-- Visibility (km): double (nullable = true)\n |-- Loud Cover: double (nullable = true)\n |-- Pressure (millibars): double (nullable = true)\n |-- Daily Summary: string (nullable = true)\n\n"
+          }
+        ]
+      }
+    },
+    {
+      "user": "anonymous",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://10.0.5.2:4040/jobs/job?id=55",
+              "$$hashKey": "object:5087"
+            },
+            {
+              "jobUrl": "http://10.0.5.2:4040/jobs/job?id=56",
+              "$$hashKey": "object:5088"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1752108039139_622634882",
+      "id": "paragraph_1752108039139_622634882",
+      "dateCreated": "2025-07-10T00:40:39+0000",
+      "status": "FINISHED",
+      "focus": true,
+      "$$hashKey": "object:2182",
+      "text": "dfWeather.select(dfWeather.columns.map(c => sum(col(c).isNull.cast(\"int\")).alias(c)): _*).show()\r\n",
+      "dateUpdated": "2025-07-10T01:29:24+0000",
+      "dateFinished": "2025-07-10T01:29:24+0000",
+      "dateStarted": "2025-07-10T01:29:24+0000",
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "+--------------+-------+-----------+---------------+------------------------+--------+-----------------+----------------------+---------------+----------+--------------------+-------------+\n|Formatted Date|Summary|Precip Type|Temperature (C)|Apparent Temperature (C)|Humidity|Wind Speed (km/h)|Wind Bearing (degrees)|Visibility (km)|Loud Cover|Pressure (millibars)|Daily Summary|\n+--------------+-------+-----------+---------------+------------------------+--------+-----------------+----------------------+---------------+----------+--------------------+-------------+\n|             0|      0|          0|              0|                       0|       0|                0|                     0|              0|         0|                   0|            0|\n+--------------+-------+-----------+---------------+------------------------+--------+-----------------+----------------------+---------------+----------+--------------------+-------------+\n\n"
+          }
+        ]
+      }
+    },
+    {
+      "user": "anonymous",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://10.0.5.2:4040/jobs/job?id=57",
+              "$$hashKey": "object:5242"
+            },
+            {
+              "jobUrl": "http://10.0.5.2:4040/jobs/job?id=58",
+              "$$hashKey": "object:5243"
+            },
+            {
+              "jobUrl": "http://10.0.5.2:4040/jobs/job?id=59",
+              "$$hashKey": "object:5244"
+            },
+            {
+              "jobUrl": "http://10.0.5.2:4040/jobs/job?id=60",
+              "$$hashKey": "object:5245"
+            },
+            {
+              "jobUrl": "http://10.0.5.2:4040/jobs/job?id=61",
+              "$$hashKey": "object:5246"
+            },
+            {
+              "jobUrl": "http://10.0.5.2:4040/jobs/job?id=62",
+              "$$hashKey": "object:5247"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1752109733466_940719922",
+      "id": "paragraph_1752109733466_940719922",
+      "dateCreated": "2025-07-10T01:08:53+0000",
+      "status": "FINISHED",
+      "focus": true,
+      "$$hashKey": "object:2288",
+      "text": "\r\nval categoricalCols = dfWeather.schema.fields.collect {\r\n  case StructField(name, StringType, _, _) => name\r\n}\r\n\r\ncategoricalCols.foreach { c =>\r\n  println(s\"Valores únicos en '$c':\")\r\n  dfWeather.groupBy(col(c)).count().orderBy(desc(\"count\")).show(20, false)\r\n}\r\n",
+      "dateUpdated": "2025-07-10T01:29:29+0000",
+      "dateFinished": "2025-07-10T01:29:30+0000",
+      "dateStarted": "2025-07-10T01:29:29+0000",
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "Valores únicos en 'Summary':\n+------------------------+-----+\n|Summary                 |count|\n+------------------------+-----+\n|Partly Cloudy           |31733|\n|Mostly Cloudy           |28094|\n|Overcast                |16597|\n|Clear                   |10890|\n|Foggy                   |7148 |\n|Breezy and Overcast     |528  |\n|Breezy and Mostly Cloudy|516  |\n|Breezy and Partly Cloudy|386  |\n|Dry and Partly Cloudy   |86   |\n|Windy and Partly Cloudy |67   |\n|Light Rain              |63   |\n|Breezy                  |54   |\n|Windy and Overcast      |45   |\n|Humid and Mostly Cloudy |40   |\n|Drizzle                 |39   |\n|Breezy and Foggy        |35   |\n|Windy and Mostly Cloudy |35   |\n|Dry                     |34   |\n|Humid and Partly Cloudy |17   |\n|Dry and Mostly Cloudy   |14   |\n+------------------------+-----+\nonly showing top 20 rows\n\nValores únicos en 'Precip Type':\n+-----------+-----+\n|Precip Type|count|\n+-----------+-----+\n|rain       |85224|\n|snow       |10712|\n|null       |517  |\n+-----------+-----+\n\nValores únicos en 'Daily Summary':\n+-----------------------------------------------------------------+-----+\n|Daily Summary                                                    |count|\n+-----------------------------------------------------------------+-----+\n|Mostly cloudy throughout the day.                                |20085|\n|Partly cloudy throughout the day.                                |9981 |\n|Partly cloudy until night.                                       |6169 |\n|Partly cloudy starting in the morning.                           |5184 |\n|Foggy in the morning.                                            |4201 |\n|Foggy starting overnight continuing until morning.               |3576 |\n|Partly cloudy until evening.                                     |3288 |\n|Mostly cloudy until night.                                       |3095 |\n|Overcast throughout the day.                                     |2952 |\n|Partly cloudy starting in the morning continuing until evening.  |2806 |\n|Foggy until morning.                                             |2691 |\n|Partly cloudy starting in the morning continuing until night.    |2136 |\n|Mostly cloudy starting in the morning.                           |1584 |\n|Foggy starting in the evening.                                   |1464 |\n|Partly cloudy starting overnight.                                |1440 |\n|Partly cloudy starting in the afternoon.                         |1344 |\n|Partly cloudy starting in the afternoon continuing until evening.|1319 |\n|Foggy overnight.                                                 |1273 |\n|Mostly cloudy starting overnight.                                |1272 |\n|Mostly cloudy until evening.                                     |1056 |\n+-----------------------------------------------------------------+-----+\nonly showing top 20 rows\n\n\u001b[1m\u001b[34mcategoricalCols\u001b[0m: \u001b[1m\u001b[32mArray[String]\u001b[0m = Array(Summary, Precip Type, Daily Summary)\n"
+          }
+        ]
+      }
+    },
+    {
+      "user": "anonymous",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://10.0.5.2:4040/jobs/job?id=64",
+              "$$hashKey": "object:5440"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1752110887324_69488144",
+      "id": "paragraph_1752110887324_69488144",
+      "dateCreated": "2025-07-10T01:28:07+0000",
+      "status": "FINISHED",
+      "focus": true,
+      "$$hashKey": "object:3658",
+      "text": "dfWeather.select(\"Formatted Date\").show(10, false)\r\n",
+      "dateUpdated": "2025-07-10T01:30:50+0000",
+      "dateFinished": "2025-07-10T01:30:51+0000",
+      "dateStarted": "2025-07-10T01:30:50+0000",
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "+-------------------+\n|Formatted Date     |\n+-------------------+\n|2006-03-31 22:00:00|\n|2006-03-31 23:00:00|\n|2006-04-01 00:00:00|\n|2006-04-01 01:00:00|\n|2006-04-01 02:00:00|\n|2006-04-01 03:00:00|\n|2006-04-01 04:00:00|\n|2006-04-01 05:00:00|\n|2006-04-01 06:00:00|\n|2006-04-01 07:00:00|\n+-------------------+\nonly showing top 10 rows\n\n"
+          }
+        ]
+      }
+    },
+    {
+      "user": "anonymous",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://10.0.5.2:4040/jobs/job?id=75",
+              "$$hashKey": "object:6189"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1752111050850_587761058",
+      "id": "paragraph_1752111050850_587761058",
+      "dateCreated": "2025-07-10T01:30:50+0000",
+      "status": "FINISHED",
+      "focus": true,
+      "$$hashKey": "object:5340",
+      "text": "//extraido con chat\r\nval dfCleaned = dfWeather.withColumn(\r\n  \"Formatted_Date_cleaned\",\r\n  regexp_replace(col(\"Formatted Date\"), \" +\", \" \")\r\n)\r\n\r\ndfCleaned.select(\"Formatted Date\", \"Formatted_Date_cleaned\").show(10, false)\r\n",
+      "dateUpdated": "2025-07-10T01:38:19+0000",
+      "dateFinished": "2025-07-10T01:38:19+0000",
+      "dateStarted": "2025-07-10T01:38:19+0000",
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "+-------------------+----------------------+\n|Formatted Date     |Formatted_Date_cleaned|\n+-------------------+----------------------+\n|2006-03-31 22:00:00|2006-03-31 22:00:00   |\n|2006-03-31 23:00:00|2006-03-31 23:00:00   |\n|2006-04-01 00:00:00|2006-04-01 00:00:00   |\n|2006-04-01 01:00:00|2006-04-01 01:00:00   |\n|2006-04-01 02:00:00|2006-04-01 02:00:00   |\n|2006-04-01 03:00:00|2006-04-01 03:00:00   |\n|2006-04-01 04:00:00|2006-04-01 04:00:00   |\n|2006-04-01 05:00:00|2006-04-01 05:00:00   |\n|2006-04-01 06:00:00|2006-04-01 06:00:00   |\n|2006-04-01 07:00:00|2006-04-01 07:00:00   |\n+-------------------+----------------------+\nonly showing top 10 rows\n\n\u001b[1m\u001b[34mdfCleaned\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.DataFrame\u001b[0m = [Formatted Date: timestamp, Summary: string ... 11 more fields]\n"
+          }
+        ]
+      }
+    },
+    {
+      "user": "anonymous",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1752111407854_842348383",
+      "id": "paragraph_1752111407854_842348383",
+      "dateCreated": "2025-07-10T01:36:47+0000",
+      "status": "FINISHED",
+      "focus": true,
+      "$$hashKey": "object:5833",
+      "text": "val dfWeatherWithDate = dfWeatherClean\r\n  .withColumn(\"Año\", year(col(\"Formatted_Date_cl\")))\r\n  .withColumn(\"Mes\", month(col(\"Formatted_Date_cl\")))\r\n  .withColumn(\"Día\", dayofmonth(col(\"Formatted_Date_cl\")))\r\n  .withColumn(\"Hora\", hour(col(\"Formatted_Date_cl\")))\r\n",
+      "dateUpdated": "2025-07-10T01:38:21+0000",
+      "dateFinished": "2025-07-10T01:38:21+0000",
+      "dateStarted": "2025-07-10T01:38:21+0000",
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\u001b[1m\u001b[34mdfWeatherWithDate\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.DataFrame\u001b[0m = [Formatted Date: timestamp, Summary: string ... 15 more fields]\n"
+          }
+        ]
+      }
+    },
+    {
+      "user": "anonymous",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1752111900196_1411859254",
+      "id": "paragraph_1752111900196_1411859254",
+      "dateCreated": "2025-07-10T01:45:00+0000",
+      "status": "FINISHED",
+      "focus": true,
+      "$$hashKey": "object:8026",
+      "text": "dfWeather.printSchema()\n",
+      "dateUpdated": "2025-07-10T01:45:22+0000",
+      "dateFinished": "2025-07-10T01:45:22+0000",
+      "dateStarted": "2025-07-10T01:45:22+0000",
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "root\n |-- Formatted Date: timestamp (nullable = true)\n |-- Summary: string (nullable = true)\n |-- Precip Type: string (nullable = true)\n |-- Temperature (C): double (nullable = true)\n |-- Apparent Temperature (C): double (nullable = true)\n |-- Humidity: double (nullable = true)\n |-- Wind Speed (km/h): double (nullable = true)\n |-- Wind Bearing (degrees): double (nullable = true)\n |-- Visibility (km): double (nullable = true)\n |-- Loud Cover: double (nullable = true)\n |-- Pressure (millibars): double (nullable = true)\n |-- Daily Summary: string (nullable = true)\n\n"
+          }
+        ]
+      }
+    },
+    {
+      "user": "anonymous",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "scatterChart",
+              "height": 300,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "Formatted Date": "string",
+                      "Temp_Prom": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                },
+                "multiBarChart": {
+                  "rotate": {
+                    "degree": "-45"
+                  },
+                  "xLabelStatus": "default"
+                },
+                "stackedAreaChart": {
+                  "rotate": {
+                    "degree": "-45"
+                  },
+                  "xLabelStatus": "default"
+                },
+                "lineChart": {
+                  "rotate": {
+                    "degree": "-45"
+                  },
+                  "xLabelStatus": "default"
+                }
+              },
+              "commonSetting": {},
+              "keys": [],
+              "groups": [],
+              "values": [
+                {
+                  "name": "Temp_Prom",
+                  "index": 1,
+                  "aggr": "sum"
+                }
+              ]
+            },
+            "helium": {}
+          },
+          "1": {
+            "graph": {
+              "mode": "table",
+              "height": 300,
+              "optionOpen": false
+            }
+          }
+        },
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://10.0.5.2:4040/jobs/job?id=86",
+              "$$hashKey": "object:10173"
+            },
+            {
+              "jobUrl": "http://10.0.5.2:4040/jobs/job?id=87",
+              "$$hashKey": "object:10174"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1752111483964_617275257",
+      "id": "paragraph_1752111483964_617275257",
+      "dateCreated": "2025-07-10T01:38:03+0000",
+      "status": "FINISHED",
+      "focus": true,
+      "$$hashKey": "object:6057",
+      "text": "z.show(\r\n  dfWeatherWithDate\r\n    .groupBy(\"Formatted Date\")\r\n    .agg(avg(\"Temperature (C)\").alias(\"Temp_Prom\"))\r\n    .orderBy(\"Formatted Date\")\r\n)\r\n",
+      "dateUpdated": "2025-07-10T01:50:17+0000",
+      "dateFinished": "2025-07-10T01:50:15+0000",
+      "dateStarted": "2025-07-10T01:50:14+0000",
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "Formatted Date\tTemp_Prom\n2005-12-31 23:00:00.0\t0.5777777777777773\n2006-01-01 00:00:00.0\t1.161111111111113\n2006-01-01 01:00:00.0\t1.6666666666666667\n2006-01-01 02:00:00.0\t1.7111111111111101\n2006-01-01 03:00:00.0\t1.1833333333333347\n2006-01-01 04:00:00.0\t1.2055555555555566\n2006-01-01 05:00:00.0\t2.2222222222222223\n2006-01-01 06:00:00.0\t2.0722222222222206\n2006-01-01 07:00:00.0\t2.2000000000000006\n2006-01-01 08:00:00.0\t2.7333333333333343\n2006-01-01 09:00:00.0\t2.7888888888888905\n2006-01-01 10:00:00.0\t3.8222222222222237\n2006-01-01 11:00:00.0\t4.911111111111113\n2006-01-01 12:00:00.0\t6.205555555555557\n2006-01-01 13:00:00.0\t7.438888888888889\n2006-01-01 14:00:00.0\t6.949999999999999\n2006-01-01 15:00:00.0\t5.972222222222222\n2006-01-01 16:00:00.0\t5.905555555555557\n2006-01-01 17:00:00.0\t4.955555555555557\n2006-01-01 18:00:00.0\t5.472222222222223\n2006-01-01 19:00:00.0\t5.972222222222222\n2006-01-01 20:00:00.0\t4.9333333333333345\n2006-01-01 21:00:00.0\t5.472222222222223\n2006-01-01 22:00:00.0\t5.422222222222221\n2006-01-01 23:00:00.0\t5.422222222222221\n2006-01-02 00:00:00.0\t2.3499999999999983\n2006-01-02 01:00:00.0\t5.422222222222221\n2006-01-02 02:00:00.0\t5.905555555555557\n2006-01-02 03:00:00.0\t5.966666666666668\n2006-01-02 04:00:00.0\t5.95\n2006-01-02 05:00:00.0\t5.95\n2006-01-02 06:00:00.0\t6.733333333333332\n2006-01-02 07:00:00.0\t5.927777777777779\n2006-01-02 08:00:00.0\t6.944444444444445\n2006-01-02 09:00:00.0\t6.944444444444445\n2006-01-02 10:00:00.0\t7.505555555555554\n2006-01-02 11:00:00.0\t6.994444444444446\n2006-01-02 12:00:00.0\t7.044444444444444\n2006-01-02 13:00:00.0\t7.016666666666668\n2006-01-02 14:00:00.0\t7.016666666666668\n2006-01-02 15:00:00.0\t6.5388888888888905\n2006-01-02 16:00:00.0\t5.933333333333334\n2006-01-02 17:00:00.0\t4.866666666666665\n2006-01-02 18:00:00.0\t3.944444444444445\n2006-01-02 19:00:00.0\t2.855555555555556\n2006-01-02 20:00:00.0\t2.805555555555554\n2006-01-02 21:00:00.0\t2.311111111111109\n2006-01-02 22:00:00.0\t1.6944444444444429\n2006-01-02 23:00:00.0\t1.6944444444444429\n2006-01-03 00:00:00.0\t1.7333333333333318\n2006-01-03 01:00:00.0\t1.6666666666666667\n2006-01-03 02:00:00.0\t1.6666666666666667\n2006-01-03 03:00:00.0\t1.7166666666666686\n2006-01-03 04:00:00.0\t2.2000000000000006\n2006-01-03 05:00:00.0\t2.2000000000000006\n2006-01-03 06:00:00.0\t2.205555555555555\n2006-01-03 07:00:00.0\t2.2000000000000006\n2006-01-03 08:00:00.0\t2.2222222222222223\n2006-01-03 09:00:00.0\t2.7888888888888905\n2006-01-03 10:00:00.0\t2.7777777777777777\n2006-01-03 11:00:00.0\t2.8500000000000014\n2006-01-03 12:00:00.0\t2.8999999999999995\n2006-01-03 13:00:00.0\t2.8500000000000014\n2006-01-03 14:00:00.0\t2.8277777777777797\n2006-01-03 15:00:00.0\t2.844444444444443\n2006-01-03 16:00:00.0\t2.7777777777777777\n2006-01-03 17:00:00.0\t2.244444444444444\n2006-01-03 18:00:00.0\t2.3555555555555565\n2006-01-03 19:00:00.0\t2.244444444444444\n2006-01-03 20:00:00.0\t2.244444444444444\n2006-01-03 21:00:00.0\t2.255555555555557\n2006-01-03 22:00:00.0\t2.2000000000000006\n2006-01-03 23:00:00.0\t2.2000000000000006\n2006-01-04 00:00:00.0\t1.7000000000000013\n2006-01-04 01:00:00.0\t1.7166666666666686\n2006-01-04 02:00:00.0\t1.7166666666666686\n2006-01-04 03:00:00.0\t1.7166666666666686\n2006-01-04 04:00:00.0\t2.2000000000000006\n2006-01-04 05:00:00.0\t2.2000000000000006\n2006-01-04 06:00:00.0\t2.1388888888888897\n2006-01-04 07:00:00.0\t2.177777777777779\n2006-01-04 08:00:00.0\t2.2000000000000006\n2006-01-04 09:00:00.0\t2.2666666666666657\n2006-01-04 10:00:00.0\t2.2499999999999982\n2006-01-04 11:00:00.0\t2.7777777777777777\n2006-01-04 12:00:00.0\t2.283333333333333\n2006-01-04 13:00:00.0\t2.3166666666666678\n2006-01-04 14:00:00.0\t2.7999999999999994\n2006-01-04 15:00:00.0\t2.8111111111111122\n2006-01-04 16:00:00.0\t2.755555555555556\n2006-01-04 17:00:00.0\t2.755555555555556\n2006-01-04 18:00:00.0\t2.738888888888889\n2006-01-04 19:00:00.0\t2.7333333333333343\n2006-01-04 20:00:00.0\t2.2222222222222223\n2006-01-04 21:00:00.0\t2.233333333333335\n2006-01-04 22:00:00.0\t1.6666666666666667\n2006-01-04 23:00:00.0\t1.6666666666666667\n2006-01-05 00:00:00.0\t2.6333333333333346\n2006-01-05 01:00:00.0\t1.6888888888888884\n2006-01-05 02:00:00.0\t1.161111111111113\n2006-01-05 03:00:00.0\t1.2166666666666655\n2006-01-05 04:00:00.0\t1.161111111111113\n2006-01-05 05:00:00.0\t1.161111111111113\n2006-01-05 06:00:00.0\t2.1388888888888897\n2006-01-05 07:00:00.0\t2.177777777777779\n2006-01-05 08:00:00.0\t2.2222222222222223\n2006-01-05 09:00:00.0\t2.694444444444445\n2006-01-05 10:00:00.0\t2.755555555555556\n2006-01-05 11:00:00.0\t3.8444444444444454\n2006-01-05 12:00:00.0\t3.8333333333333326\n2006-01-05 13:00:00.0\t3.866666666666667\n2006-01-05 14:00:00.0\t3.866666666666667\n2006-01-05 15:00:00.0\t3.8833333333333346\n2006-01-05 16:00:00.0\t3.866666666666667\n2006-01-05 17:00:00.0\t3.938888888888891\n2006-01-05 18:00:00.0\t3.838888888888887\n2006-01-05 19:00:00.0\t2.8277777777777797\n2006-01-05 20:00:00.0\t3.2888888888888896\n2006-01-05 21:00:00.0\t2.727777777777776\n2006-01-05 22:00:00.0\t2.294444444444446\n2006-01-05 23:00:00.0\t1.8055555555555556\n2006-01-06 00:00:00.0\t2.272222222222224\n2006-01-06 01:00:00.0\t2.8277777777777797\n2006-01-06 02:00:00.0\t2.8277777777777797\n2006-01-06 03:00:00.0\t2.7722222222222235\n2006-01-06 04:00:00.0\t2.755555555555556\n2006-01-06 05:00:00.0\t2.755555555555556\n2006-01-06 06:00:00.0\t2.7611111111111106\n2006-01-06 07:00:00.0\t2.7333333333333343\n2006-01-06 08:00:00.0\t2.7333333333333343\n2006-01-06 09:00:00.0\t2.6999999999999997\n2006-01-06 10:00:00.0\t2.272222222222224\n2006-01-06 11:00:00.0\t2.272222222222224\n2006-01-06 12:00:00.0\t2.3166666666666678\n2006-01-06 13:00:00.0\t2.805555555555554\n2006-01-06 14:00:00.0\t2.755555555555556\n2006-01-06 15:00:00.0\t2.305555555555555\n2006-01-06 16:00:00.0\t2.2222222222222223\n2006-01-06 17:00:00.0\t2.2222222222222223\n2006-01-06 18:00:00.0\t2.255555555555557\n2006-01-06 19:00:00.0\t2.2222222222222223\n2006-01-06 20:00:00.0\t2.2222222222222223\n2006-01-06 21:00:00.0\t2.7333333333333343\n2006-01-06 22:00:00.0\t2.7333333333333343\n2006-01-06 23:00:00.0\t2.7333333333333343\n2006-01-07 00:00:00.0\t0.29444444444444506\n2006-01-07 01:00:00.0\t1.6444444444444448\n2006-01-07 02:00:00.0\t0.5277777777777793\n2006-01-07 03:00:00.0\t1.1777777777777763\n2006-01-07 04:00:00.0\t1.0833333333333348\n2006-01-07 05:00:00.0\t1.0833333333333348\n2006-01-07 06:00:00.0\t1.0500000000000003\n2006-01-07 07:00:00.0\t2.127777777777777\n2006-01-07 08:00:00.0\t1.1555555555555546\n2006-01-07 09:00:00.0\t1.188888888888889\n2006-01-07 10:00:00.0\t2.2222222222222223\n2006-01-07 11:00:00.0\t2.244444444444444\n2006-01-07 12:00:00.0\t2.2277777777777765\n2006-01-07 13:00:00.0\t2.2666666666666657\n2006-01-07 14:00:00.0\t1.7111111111111101\n2006-01-07 15:00:00.0\t1.2388888888888872\n2006-01-07 16:00:00.0\t0.08888888888888699\n2006-01-07 17:00:00.0\t0.11666666666666714\n2006-01-07 18:00:00.0\t-0.7277777777777771\n2006-01-07 19:00:00.0\t-1.0166666666666657\n2006-01-07 20:00:00.0\t-0.5333333333333338\n2006-01-07 21:00:00.0\t-0.033333333333332625\n2006-01-07 22:00:00.0\t-0.044444444444443496\n2006-01-07 23:00:00.0\t-0.044444444444443496\n2006-01-08 00:00:00.0\t-4.094444444444445\n2006-01-08 01:00:00.0\t-0.6500000000000009\n2006-01-08 02:00:00.0\t-1.161111111111111\n2006-01-08 03:00:00.0\t-1.9500000000000008\n2006-01-08 04:00:00.0\t-2.8611111111111103\n2006-01-08 05:00:00.0\t-2.8111111111111104\n2006-01-08 06:00:00.0\t-3.4777777777777787\n2006-01-08 07:00:00.0\t-3.755555555555557\n2006-01-08 08:00:00.0\t-1.161111111111111\n2006-01-08 09:00:00.0\t0.044444444444443496\n2006-01-08 10:00:00.0\t2.0833333333333335\n2006-01-08 11:00:00.0\t2.6833333333333322\n2006-01-08 12:00:00.0\t2.305555555555555\n2006-01-08 13:00:00.0\t2.2888888888888874\n2006-01-08 14:00:00.0\t2.2388888888888894\n2006-01-08 15:00:00.0\t1.1944444444444438\n2006-01-08 16:00:00.0\t-1.1388888888888893\n2006-01-08 17:00:00.0\t-1.1833333333333327\n2006-01-08 18:00:00.0\t-2.061111111111112\n2006-01-08 19:00:00.0\t-2.2222222222222223\n2006-01-08 20:00:00.0\t-2.755555555555556\n2006-01-08 21:00:00.0\t-2.3166666666666678\n2006-01-08 22:00:00.0\t-3.866666666666667\n2006-01-08 23:00:00.0\t-4.933333333333333\n2006-01-09 00:00:00.0\t-1.2777777777777781\n2006-01-09 01:00:00.0\t-4.488888888888888\n2006-01-09 02:00:00.0\t-4.555555555555555\n2006-01-09 03:00:00.0\t-5.094444444444445\n2006-01-09 04:00:00.0\t-5.138888888888889\n2006-01-09 05:00:00.0\t-6.205555555555557\n2006-01-09 06:00:00.0\t-6.044444444444443\n2006-01-09 07:00:00.0\t-5.138888888888889\n2006-01-09 08:00:00.0\t-2.883333333333334\n2006-01-09 09:00:00.0\t-1.2055555555555566\n2006-01-09 10:00:00.0\t0.0500000000000019\n2006-01-09 11:00:00.0\t1.211111111111111\n2006-01-09 12:00:00.0\t2.2499999999999982\n2006-01-09 13:00:00.0\t2.294444444444446\n2006-01-09 14:00:00.0\t2.294444444444446\n2006-01-09 15:00:00.0\t1.25\n2006-01-09 16:00:00.0\t-0.07222222222222167\n2006-01-09 17:00:00.0\t-1.1555555555555546\n2006-01-09 18:00:00.0\t-1.2222222222222219\n2006-01-09 19:00:00.0\t-1.2222222222222219\n2006-01-09 20:00:00.0\t-0.688888888888888\n2006-01-09 21:00:00.0\t-1.1111111111111112\n2006-01-09 22:00:00.0\t-1.2777777777777781\n2006-01-09 23:00:00.0\t-1.2055555555555566\n2006-01-10 00:00:00.0\t-2.872222222222223\n2006-01-10 01:00:00.0\t-1.1555555555555546\n2006-01-10 02:00:00.0\t-1.1555555555555546\n2006-01-10 03:00:00.0\t-1.5777777777777777\n2006-01-10 04:00:00.0\t-1.1555555555555546\n2006-01-10 05:00:00.0\t-1.1777777777777783\n2006-01-10 06:00:00.0\t-1.211111111111111\n2006-01-10 07:00:00.0\t-1.1777777777777783\n2006-01-10 08:00:00.0\t-1.1055555555555547\n2006-01-10 09:00:00.0\t0.016666666666667298\n2006-01-10 10:00:00.0\t1.188888888888889\n2006-01-10 11:00:00.0\t2.2499999999999982\n2006-01-10 12:00:00.0\t2.7611111111111106\n2006-01-10 13:00:00.0\t2.9277777777777794\n2006-01-10 14:00:00.0\t2.8777777777777778\n2006-01-10 15:00:00.0\t1.338888888888887\n2006-01-10 16:00:00.0\t0.0500000000000019\n2006-01-10 17:00:00.0\t-1.0388888888888894\n2006-01-10 18:00:00.0\t-1.288888888888889\n2006-01-10 19:00:00.0\t-1.4999999999999996\n2006-01-10 20:00:00.0\t-1.7499999999999991\n2006-01-10 21:00:00.0\t-2.322222222222222\n2006-01-10 22:00:00.0\t-2.816666666666667\n2006-01-10 23:00:00.0\t-2.8888888888888884\n2006-01-11 00:00:00.0\t-1.4499999999999997\n2006-01-11 01:00:00.0\t-4.0\n2006-01-11 02:00:00.0\t-4.5055555555555555\n2006-01-11 03:00:00.0\t-4.761111111111111\n2006-01-11 04:00:00.0\t-3.938888888888889\n2006-01-11 05:00:00.0\t-2.9166666666666665\n2006-01-11 06:00:00.0\t-2.905555555555556\n2006-01-11 07:00:00.0\t-2.4944444444444436\n2006-01-11 08:00:00.0\t-2.377777777777778\n2006-01-11 09:00:00.0\t-1.0777777777777784\n2006-01-11 10:00:00.0\t-1.0166666666666657\n2006-01-11 11:00:00.0\t0.1388888888888889\n2006-01-11 12:00:00.0\t1.0666666666666675\n2006-01-11 13:00:00.0\t1.2055555555555566\n2006-01-11 14:00:00.0\t1.2055555555555566\n2006-01-11 15:00:00.0\t0.16111111111111065\n2006-01-11 16:00:00.0\t-0.46111111111111014\n2006-01-11 17:00:00.0\t-0.022222222222221748\n2006-01-11 18:00:00.0\t-0.06666666666666722\n2006-01-11 19:00:00.0\t-1.0388888888888894\n2006-01-11 20:00:00.0\t-0.5555555555555556\n2006-01-11 21:00:00.0\t-0.9722222222222222\n2006-01-11 22:00:00.0\t-1.0611111111111111\n2006-01-11 23:00:00.0\t-1.5722222222222213\n2006-01-12 00:00:00.0\t-0.5555555555555556\n2006-01-12 01:00:00.0\t-1.5722222222222213\n2006-01-12 02:00:00.0\t-1.0611111111111111\n2006-01-12 03:00:00.0\t-0.9888888888888895\n2006-01-12 04:00:00.0\t-1.1111111111111112\n2006-01-12 05:00:00.0\t-1.0611111111111111\n2006-01-12 06:00:00.0\t-1.0888888888888895\n2006-01-12 07:00:00.0\t-1.0611111111111111\n2006-01-12 08:00:00.0\t-1.0388888888888894\n2006-01-12 09:00:00.0\t0.03888888888888905\n2006-01-12 10:00:00.0\t0.07222222222222364\n2006-01-12 11:00:00.0\t0.1388888888888889\n2006-01-12 12:00:00.0\t1.1722222222222218\n2006-01-12 13:00:00.0\t1.1833333333333347\n2006-01-12 14:00:00.0\t1.1833333333333347\n2006-01-12 15:00:00.0\t0.18888888888889077\n2006-01-12 16:00:00.0\t-0.09444444444444539\n2006-01-12 17:00:00.0\t-0.07222222222222167\n2006-01-12 18:00:00.0\t-0.03888888888888905\n2006-01-12 19:00:00.0\t-0.09444444444444539\n2006-01-12 20:00:00.0\t-0.5777777777777773\n2006-01-12 21:00:00.0\t-0.6111111111111119\n2006-01-12 22:00:00.0\t-0.5777777777777773\n2006-01-12 23:00:00.0\t-0.5777777777777773\n2006-01-13 00:00:00.0\t-0.6777777777777771\n2006-01-13 01:00:00.0\t-0.5777777777777773\n2006-01-13 02:00:00.0\t-0.5777777777777773\n2006-01-13 03:00:00.0\t-1.0388888888888894\n2006-01-13 04:00:00.0\t-1.083333333333333\n2006-01-13 05:00:00.0\t-1.083333333333333\n2006-01-13 06:00:00.0\t-1.0555555555555547\n2006-01-13 07:00:00.0\t-1.1055555555555547\n2006-01-13 08:00:00.0\t-1.083333333333333\n2006-01-13 09:00:00.0\t-0.816666666666666\n2006-01-13 10:00:00.0\t0.0500000000000019\n2006-01-13 11:00:00.0\t0.07222222222222364\n2006-01-13 12:00:00.0\t0.25000000000000155\n2006-01-13 13:00:00.0\t0.09444444444444539\n2006-01-13 14:00:00.0\t0.09444444444444539\n2006-01-13 15:00:00.0\t0.1388888888888889\n2006-01-13 16:00:00.0\t0.0500000000000019\n2006-01-13 17:00:00.0\t0.0500000000000019\n2006-01-13 18:00:00.0\t0.022222222222221748\n2006-01-13 19:00:00.0\t-0.022222222222221748\n2006-01-13 20:00:00.0\t-0.022222222222221748\n2006-01-13 21:00:00.0\t-0.0611111111111108\n2006-01-13 22:00:00.0\t-0.07222222222222167\n2006-01-13 23:00:00.0\t-0.11666666666666714\n2006-01-14 00:00:00.0\t-3.6055555555555543\n2006-01-14 01:00:00.0\t-0.6500000000000009\n2006-01-14 02:00:00.0\t-0.6500000000000009\n2006-01-14 03:00:00.0\t-0.6055555555555555\n2006-01-14 04:00:00.0\t-0.6500000000000009\n2006-01-14 05:00:00.0\t-0.6500000000000009\n2006-01-14 06:00:00.0\t-0.1722222222222215\n2006-01-14 07:00:00.0\t-0.14444444444444532\n2006-01-14 08:00:00.0\t-0.16666666666666707\n2006-01-14 09:00:00.0\t-0.14999999999999977\n2006-01-14 10:00:00.0\t-0.1388888888888889\n2006-01-14 11:00:00.0\t-0.09444444444444539\n2006-01-14 12:00:00.0\t-0.08888888888888896\n2006-01-14 13:00:00.0\t-0.1388888888888889\n2006-01-14 14:00:00.0\t-0.1388888888888889\n2006-01-14 15:00:00.0\t-0.1222222222222216\n2006-01-14 16:00:00.0\t-0.1388888888888889\n2006-01-14 17:00:00.0\t-1.161111111111111\n2006-01-14 18:00:00.0\t-2.1222222222222222\n2006-01-14 19:00:00.0\t-2.155555555555555\n2006-01-14 20:00:00.0\t-2.155555555555555\n2006-01-14 21:00:00.0\t-3.2333333333333334\n2006-01-14 22:00:00.0\t-3.7722222222222217\n2006-01-14 23:00:00.0\t-4.3277777777777775\n2006-01-15 00:00:00.0\t-3.644444444444444\n2006-01-15 01:00:00.0\t-4.8388888888888895\n2006-01-15 02:00:00.0\t-5.322222222222221\n2006-01-15 03:00:00.0\t-5.172222222222222\n2006-01-15 04:00:00.0\t-4.833333333333333\n2006-01-15 05:00:00.0\t-3.8166666666666678\n2006-01-15 06:00:00.0\t-4.133333333333334\n2006-01-15 07:00:00.0\t-2.822222222222221\n2006-01-15 08:00:00.0\t-2.7499999999999996\n2006-01-15 09:00:00.0\t-2.3000000000000003\n2006-01-15 10:00:00.0\t-2.1722222222222225\n2006-01-15 11:00:00.0\t-2.127777777777777\n2006-01-15 12:00:00.0\t-2.0111111111111115\n2006-01-15 13:00:00.0\t-2.105555555555555\n2006-01-15 14:00:00.0\t-2.127777777777777\n2006-01-15 15:00:00.0\t-2.1222222222222222\n2006-01-15 16:00:00.0\t-2.2000000000000006\n2006-01-15 17:00:00.0\t-2.7333333333333343\n2006-01-15 18:00:00.0\t-2.6888888888888887\n2006-01-15 19:00:00.0\t-2.755555555555556\n2006-01-15 20:00:00.0\t-2.755555555555556\n2006-01-15 21:00:00.0\t-3.2444444444444445\n2006-01-15 22:00:00.0\t-3.2888888888888896\n2006-01-15 23:00:00.0\t-3.2888888888888896\n2006-01-16 00:00:00.0\t-4.116666666666666\n2006-01-16 01:00:00.0\t-3.2888888888888896\n2006-01-16 02:00:00.0\t-3.3333333333333335\n2006-01-16 03:00:00.0\t-3.3333333333333335\n2006-01-16 04:00:00.0\t-2.8277777777777775\n2006-01-16 05:00:00.0\t-3.8444444444444454\n2006-01-16 06:00:00.0\t-3.8055555555555562\n2006-01-16 07:00:00.0\t-3.7944444444444434\n2006-01-16 08:00:00.0\t-3.7944444444444434\n2006-01-16 09:00:00.0\t-3.744444444444443\n2006-01-16 10:00:00.0\t-3.7722222222222217\n2006-01-16 11:00:00.0\t-2.755555555555556\n2006-01-16 12:00:00.0\t-3.744444444444443\n2006-01-16 13:00:00.0\t-2.755555555555556\n2006-01-16 14:00:00.0\t-3.7722222222222217\n2006-01-16 15:00:00.0\t-3.744444444444443\n2006-01-16 16:00:00.0\t-3.7944444444444434\n2006-01-16 17:00:00.0\t-3.7944444444444434\n2006-01-16 18:00:00.0\t-3.7944444444444434\n2006-01-16 19:00:00.0\t-3.7944444444444434\n2006-01-16 20:00:00.0\t-3.7944444444444434\n2006-01-16 21:00:00.0\t-3.811111111111111\n2006-01-16 22:00:00.0\t-3.8166666666666678\n2006-01-16 23:00:00.0\t-4.3277777777777775\n2006-01-17 00:00:00.0\t-2.144444444444444\n2006-01-17 01:00:00.0\t-4.3277777777777775\n2006-01-17 02:00:00.0\t-4.3277777777777775\n2006-01-17 03:00:00.0\t-4.388888888888888\n2006-01-17 04:00:00.0\t-4.905555555555555\n2006-01-17 05:00:00.0\t-4.905555555555555\n2006-01-17 06:00:00.0\t-4.8388888888888895\n2006-01-17 07:00:00.0\t-4.905555555555555\n2006-01-17 08:00:00.0\t-3.888888888888889\n2006-01-17 09:00:00.0\t-3.922222222222222\n2006-01-17 10:00:00.0\t-3.8166666666666678\n2006-01-17 11:00:00.0\t-3.8166666666666678\n2006-01-17 12:00:00.0\t-3.7611111111111106\n2006-01-17 13:00:00.0\t-2.7777777777777777\n2006-01-17 14:00:00.0\t-3.7944444444444434\n2006-01-17 15:00:00.0\t-3.7055555555555566\n2006-01-17 16:00:00.0\t-3.822222222222221\n2006-01-17 17:00:00.0\t-3.7722222222222217\n2006-01-17 18:00:00.0\t-3.6944444444444438\n2006-01-17 19:00:00.0\t-3.7722222222222217\n2006-01-17 20:00:00.0\t-3.266666666666666\n2006-01-17 21:00:00.0\t-3.1166666666666663\n2006-01-17 22:00:00.0\t-2.7333333333333343\n2006-01-17 23:00:00.0\t-2.2222222222222223\n2006-01-18 00:00:00.0\t1.2277777777777783\n2006-01-18 01:00:00.0\t-0.5999999999999991\n2006-01-18 02:00:00.0\t0.4888888888888903\n2006-01-18 03:00:00.0\t1.2388888888888872\n2006-01-18 04:00:00.0\t2.177777777777779\n2006-01-18 05:00:00.0\t2.2222222222222223\n2006-01-18 06:00:00.0\t2.833333333333334\n2006-01-18 07:00:00.0\t2.3166666666666678\n2006-01-18 08:00:00.0\t2.805555555555554\n2006-01-18 09:00:00.0\t3.816666666666665\n2006-01-18 10:00:00.0\t2.8277777777777797\n2006-01-18 11:00:00.0\t2.8500000000000014\n2006-01-18 12:00:00.0\t3.8555555555555543\n2006-01-18 13:00:00.0\t3.888888888888889\n2006-01-18 14:00:00.0\t2.844444444444443\n2006-01-18 15:00:00.0\t2.9055555555555537\n2006-01-18 16:00:00.0\t2.2666666666666657\n2006-01-18 17:00:00.0\t2.244444444444444\n2006-01-18 18:00:00.0\t1.7555555555555538\n2006-01-18 19:00:00.0\t1.2055555555555566\n2006-01-18 20:00:00.0\t0.6722222222222227\n2006-01-18 21:00:00.0\t0.6666666666666683\n2006-01-18 22:00:00.0\t0.14444444444444335\n2006-01-18 23:00:00.0\t0.6944444444444444\n2006-01-19 00:00:00.0\t-4.21111111111111\n2006-01-19 01:00:00.0\t2.2666666666666657\n2006-01-19 02:00:00.0\t2.2222222222222223\n2006-01-19 03:00:00.0\t1.6944444444444429\n2006-01-19 04:00:00.0\t1.1111111111111112\n2006-01-19 05:00:00.0\t1.0611111111111091\n2006-01-19 06:00:00.0\t0.1388888888888889\n2006-01-19 07:00:00.0\t-0.04999999999999992\n2006-01-19 08:00:00.0\t-1.1111111111111112\n2006-01-19 09:00:00.0\t-0.9777777777777786\n2006-01-19 10:00:00.0\t-1.0666666666666675\n2006-01-19 11:00:00.0\t-0.9722222222222222\n2006-01-19 12:00:00.0\t-0.8722222222222223\n2006-01-19 13:00:00.0\t-0.994444444444444\n2006-01-19 14:00:00.0\t-1.0166666666666657\n2006-01-19 15:00:00.0\t-0.1388888888888889\n2006-01-19 16:00:00.0\t-1.1111111111111112\n2006-01-19 17:00:00.0\t-2.2222222222222223\n2006-01-19 18:00:00.0\t-2.6444444444444453\n2006-01-19 19:00:00.0\t-2.8277777777777775\n2006-01-19 20:00:00.0\t-3.866666666666667\n2006-01-19 21:00:00.0\t-3.7722222222222217\n2006-01-19 22:00:00.0\t-4.933333333333333\n2006-01-19 23:00:00.0\t-5.444444444444445\n2006-01-20 00:00:00.0\t-1.7333333333333338\n2006-01-20 01:00:00.0\t-5.488888888888888\n2006-01-20 02:00:00.0\t-5.483333333333334\n2006-01-20 03:00:00.0\t-5.444444444444445\n2006-01-20 04:00:00.0\t-4.949999999999999\n2006-01-20 05:00:00.0\t-3.888888888888889\n2006-01-20 06:00:00.0\t-3.8388888888888886\n2006-01-20 07:00:00.0\t-3.7944444444444434\n2006-01-20 08:00:00.0\t-2.755555555555556\n2006-01-20 09:00:00.0\t-2.1000000000000005\n2006-01-20 10:00:00.0\t-2.0444444444444443\n2006-01-20 11:00:00.0\t-0.9555555555555549\n2006-01-20 12:00:00.0\t0.09444444444444539\n2006-01-20 13:00:00.0\t0.1555555555555562\n2006-01-20 14:00:00.0\t0.13333333333333444\n2006-01-20 15:00:00.0\t-0.816666666666666\n2006-01-20 16:00:00.0\t-1.0444444444444438\n2006-01-20 17:00:00.0\t-1.0666666666666675\n2006-01-20 18:00:00.0\t-1.0277777777777786\n2006-01-20 19:00:00.0\t-1.0888888888888895\n2006-01-20 20:00:00.0\t-1.1111111111111112\n2006-01-20 21:00:00.0\t-1.0444444444444438\n2006-01-20 22:00:00.0\t-1.0888888888888895\n2006-01-20 23:00:00.0\t-1.1111111111111112\n2006-01-21 00:00:00.0\t0.30555555555555397\n2006-01-21 01:00:00.0\t-1.1555555555555546\n2006-01-21 02:00:00.0\t-1.1777777777777783\n2006-01-21 03:00:00.0\t-1.2166666666666675\n2006-01-21 04:00:00.0\t-2.194444444444444\n2006-01-21 05:00:00.0\t-2.727777777777778\n2006-01-21 06:00:00.0\t-2.638888888888889\n2006-01-21 07:00:00.0\t-2.1500000000000004\n2006-01-21 08:00:00.0\t-1.083333333333333\n2006-01-21 09:00:00.0\t0.10555555555555429\n2006-01-21 10:00:00.0\t2.2000000000000006\n2006-01-21 11:00:00.0\t3.838888888888887\n2006-01-21 12:00:00.0\t4.927777777777776\n2006-01-21 13:00:00.0\t6.177777777777776\n2006-01-21 14:00:00.0\t6.199999999999998\n2006-01-21 15:00:00.0\t3.3500000000000005\n2006-01-21 16:00:00.0\t1.3000000000000018\n2006-01-21 17:00:00.0\t1.2555555555555544\n2006-01-21 18:00:00.0\t0.26111111111111046\n2006-01-21 19:00:00.0\t0.14444444444444335\n2006-01-21 20:00:00.0\t0.1722222222222235\n2006-01-21 21:00:00.0\t0.6444444444444426\n2006-01-21 22:00:00.0\t0.5666666666666684\n2006-01-21 23:00:00.0\t0.5666666666666684\n2006-01-22 00:00:00.0\t-9.483333333333333\n2006-01-22 01:00:00.0\t0.5833333333333317\n2006-01-22 02:00:00.0\t1.1833333333333347\n2006-01-22 03:00:00.0\t1.1833333333333347\n2006-01-22 04:00:00.0\t2.177777777777779\n2006-01-22 05:00:00.0\t2.1499999999999986\n2006-01-22 06:00:00.0\t2.016666666666668\n2006-01-22 07:00:00.0\t1.0888888888888895\n2006-01-22 08:00:00.0\t1.1777777777777763\n2006-01-22 09:00:00.0\t2.205555555555555\n2006-01-22 10:00:00.0\t1.1722222222222218\n2006-01-22 11:00:00.0\t0.12777777777777605\n2006-01-22 12:00:00.0\t-0.47777777777777747\n2006-01-22 13:00:00.0\t-1.988888888888888\n2006-01-22 14:00:00.0\t-2.588888888888889\n2006-01-22 15:00:00.0\t-4.416666666666667\n2006-01-22 16:00:00.0\t-5.9833333333333325\n2006-01-22 17:00:00.0\t-7.044444444444444\n2006-01-22 18:00:00.0\t-6.966666666666666\n2006-01-22 19:00:00.0\t-7.205555555555555\n2006-01-22 20:00:00.0\t-8.316666666666666\n2006-01-22 21:00:00.0\t-9.716666666666669\n2006-01-22 22:00:00.0\t-10.516666666666667\n2006-01-22 23:00:00.0\t-11.533333333333331\n2006-01-23 00:00:00.0\t-11.583333333333334\n2006-01-23 01:00:00.0\t-11.555555555555555\n2006-01-23 02:00:00.0\t-12.11111111111111\n2006-01-23 03:00:00.0\t-12.55\n2006-01-23 04:00:00.0\t-12.644444444444442\n2006-01-23 05:00:00.0\t-12.666666666666666\n2006-01-23 06:00:00.0\t-12.733333333333334\n2006-01-23 07:00:00.0\t-12.711111111111112\n2006-01-23 08:00:00.0\t-12.68888888888889\n2006-01-23 09:00:00.0\t-12.577777777777778\n2006-01-23 10:00:00.0\t-12.63888888888889\n2006-01-23 11:00:00.0\t-12.105555555555554\n2006-01-23 12:00:00.0\t-11.122222222222222\n2006-01-23 13:00:00.0\t-10.044444444444444\n2006-01-23 14:00:00.0\t-10.0\n2006-01-23 15:00:00.0\t-10.044444444444444\n2006-01-23 16:00:00.0\t-10.02222222222222\n2006-01-23 17:00:00.0\t-10.116666666666667\n2006-01-23 18:00:00.0\t-10.950000000000001\n2006-01-23 19:00:00.0\t-11.13888888888889\n2006-01-23 20:00:00.0\t-10.18888888888889\n2006-01-23 21:00:00.0\t-10.627777777777778\n2006-01-23 22:00:00.0\t-11.211111111111112\n2006-01-23 23:00:00.0\t-11.233333333333333\n2006-01-24 00:00:00.0\t-12.7\n2006-01-24 01:00:00.0\t-12.316666666666668\n2006-01-24 02:00:00.0\t-12.805555555555555\n2006-01-24 03:00:00.0\t-13.016666666666667\n2006-01-24 04:00:00.0\t-13.4\n2006-01-24 05:00:00.0\t-13.933333333333332\n2006-01-24 06:00:00.0\t-14.033333333333331\n2006-01-24 07:00:00.0\t-12.88888888888889\n2006-01-24 08:00:00.0\t-11.205555555555556\n2006-01-24 09:00:00.0\t-9.988888888888889\n2006-01-24 10:00:00.0\t-7.872222222222224\n2006-01-24 11:00:00.0\t-7.244444444444444\n2006-01-24 12:00:00.0\t-7.227777777777779\n2006-01-24 13:00:00.0\t-7.127777777777776\n2006-01-24 14:00:00.0\t-7.172222222222222\n2006-01-24 15:00:00.0\t-7.805555555555555\n2006-01-24 16:00:00.0\t-8.93888888888889\n2006-01-24 17:00:00.0\t-10.072222222222223\n2006-01-24 18:00:00.0\t-11.06111111111111\n2006-01-24 19:00:00.0\t-11.222222222222221\n2006-01-24 20:00:00.0\t-11.31111111111111\n2006-01-24 21:00:00.0\t-11.866666666666667\n2006-01-24 22:00:00.0\t-12.399999999999999\n2006-01-24 23:00:00.0\t-12.422222222222222\n2006-01-25 00:00:00.0\t-11.100000000000001\n2006-01-25 01:00:00.0\t-13.0\n2006-01-25 02:00:00.0\t-13.0\n2006-01-25 03:00:00.0\t-13.577777777777778\n2006-01-25 04:00:00.0\t-14.066666666666666\n2006-01-25 05:00:00.0\t-14.088888888888889\n2006-01-25 06:00:00.0\t-14.022222222222224\n2006-01-25 07:00:00.0\t-12.494444444444447\n2006-01-25 08:00:00.0\t-9.022222222222224\n2006-01-25 09:00:00.0\t-7.849999999999999\n2006-01-25 10:00:00.0\t-7.172222222222222\n2006-01-25 11:00:00.0\t-7.083333333333333\n2006-01-25 12:00:00.0\t-5.927777777777779\n2006-01-25 13:00:00.0\t-4.949999999999999\n2006-01-25 14:00:00.0\t-5.994444444444444\n2006-01-25 15:00:00.0\t-6.938888888888887\n2006-01-25 16:00:00.0\t-7.733333333333334\n2006-01-25 17:00:00.0\t-7.822222222222221\n2006-01-25 18:00:00.0\t-8.872222222222222\n2006-01-25 19:00:00.0\t-9.0\n2006-01-25 20:00:00.0\t-9.505555555555555\n2006-01-25 21:00:00.0\t-10.555555555555555\n2006-01-25 22:00:00.0\t-10.65\n2006-01-25 23:00:00.0\t-10.183333333333332\n2006-01-26 00:00:00.0\t-10.372222222222224\n2006-01-26 01:00:00.0\t-10.738888888888887\n2006-01-26 02:00:00.0\t-10.738888888888887\n2006-01-26 03:00:00.0\t-10.872222222222222\n2006-01-26 04:00:00.0\t-11.322222222222223\n2006-01-26 05:00:00.0\t-12.316666666666668\n2006-01-26 06:00:00.0\t-12.377777777777778\n2006-01-26 07:00:00.0\t-10.205555555555556\n2006-01-26 08:00:00.0\t-8.91111111111111\n2006-01-26 09:00:00.0\t-7.300000000000001\n2006-01-26 10:00:00.0\t-6.044444444444443\n2006-01-26 11:00:00.0\t-4.911111111111111\n2006-01-26 12:00:00.0\t-3.8444444444444454\n2006-01-26 13:00:00.0\t-2.783333333333334\n2006-01-26 14:00:00.0\t-2.783333333333334\n2006-01-26 15:00:00.0\t-3.877777777777778\n2006-01-26 16:00:00.0\t-5.144444444444446\n2006-01-26 17:00:00.0\t-6.227777777777778\n2006-01-26 18:00:00.0\t-6.416666666666667\n2006-01-26 19:00:00.0\t-7.449999999999999\n2006-01-26 20:00:00.0\t-8.055555555555555\n2006-01-26 21:00:00.0\t-8.944444444444445\n2006-01-26 22:00:00.0\t-9.166666666666666\n2006-01-26 23:00:00.0\t-9.627777777777776\n2006-01-27 00:00:00.0\t-8.927777777777777\n2006-01-27 01:00:00.0\t-11.205555555555556\n2006-01-27 02:00:00.0\t-11.738888888888889\n2006-01-27 03:00:00.0\t-11.316666666666666\n2006-01-27 04:00:00.0\t-12.805555555555555\n2006-01-27 05:00:00.0\t-12.850000000000001\n2006-01-27 06:00:00.0\t-13.544444444444444\n2006-01-27 07:00:00.0\t-11.25\n2006-01-27 08:00:00.0\t-6.388888888888889\n2006-01-27 09:00:00.0\t-4.333333333333333\n2006-01-27 10:00:00.0\t-2.938888888888888\n2006-01-27 11:00:00.0\t-1.2999999999999998\n2006-01-27 12:00:00.0\t-0.36666666666666675\n2006-01-27 13:00:00.0\t-0.16111111111111065\n2006-01-27 14:00:00.0\t-1.1833333333333327\n2006-01-27 15:00:00.0\t-2.1222222222222222\n2006-01-27 16:00:00.0\t-3.0166666666666666\n2006-01-27 17:00:00.0\t-4.05\n2006-01-27 18:00:00.0\t-5.088888888888889\n2006-01-27 19:00:00.0\t-6.227777777777778\n2006-01-27 20:00:00.0\t-6.344444444444445\n2006-01-27 21:00:00.0\t-6.66111111111111\n2006-01-27 22:00:00.0\t-7.361111111111111\n2006-01-27 23:00:00.0\t-7.916666666666667\n2006-01-28 00:00:00.0\t-1.8833333333333337\n2006-01-28 01:00:00.0\t-8.983333333333334\n2006-01-28 02:00:00.0\t-10.005555555555553\n2006-01-28 03:00:00.0\t-9.38888888888889\n2006-01-28 04:00:00.0\t-10.05\n2006-01-28 05:00:00.0\t-10.05\n2006-01-28 06:00:00.0\t-10.072222222222223\n2006-01-28 07:00:00.0\t-7.983333333333334\n2006-01-28 08:00:00.0\t-6.161111111111111\n2006-01-28 09:00:00.0\t-3.088888888888888\n2006-01-28 10:00:00.0\t-1.2999999999999998\n2006-01-28 11:00:00.0\t-1.1833333333333327\n2006-01-28 12:00:00.0\t-0.09999999999999984\n2006-01-28 13:00:00.0\t-0.027777777777778172\n2006-01-28 14:00:00.0\t-0.005555555555556424\n2006-01-28 15:00:00.0\t0.11111111111111269\n2006-01-28 16:00:00.0\t0.022222222222221748\n2006-01-28 17:00:00.0\t-0.04999999999999992\n2006-01-28 18:00:00.0\t-0.04999999999999992\n2006-01-28 19:00:00.0\t-1.161111111111111\n2006-01-28 20:00:00.0\t-0.6277777777777772\n2006-01-28 21:00:00.0\t-0.5388888888888883\n2006-01-28 22:00:00.0\t-0.6277777777777772\n2006-01-28 23:00:00.0\t-0.6277777777777772\n2006-01-29 00:00:00.0\t-0.49444444444444474\n2006-01-29 01:00:00.0\t-0.6277777777777772\n2006-01-29 02:00:00.0\t-0.6500000000000009\n2006-01-29 03:00:00.0\t-0.6611111111111119\n2006-01-29 04:00:00.0\t-0.7388888888888879\n2006-01-29 05:00:00.0\t-1.311111111111111\n2006-01-29 06:00:00.0\t-2.1111111111111116\n2006-01-29 07:00:00.0\t-1.377777777777778\n2006-01-29 08:00:00.0\t0.8888888888888897\n2006-01-29 09:00:00.0\t2.6111111111111125\n2006-01-29 10:00:00.0\t3.788888888888889\n2006-01-29 11:00:00.0\t3.8833333333333346\n2006-01-29 12:00:00.0\t5.166666666666665\n2006-01-29 13:00:00.0\t4.944444444444444\n2006-01-29 14:00:00.0\t4.9\n2006-01-29 15:00:00.0\t3.1055555555555574\n2006-01-29 16:00:00.0\t1.1500000000000001\n2006-01-29 17:00:00.0\t0.016666666666667298\n2006-01-29 18:00:00.0\t-0.9166666666666659\n2006-01-29 19:00:00.0\t-2.1500000000000004\n2006-01-29 20:00:00.0\t-2.1722222222222225\n2006-01-29 21:00:00.0\t-2.6333333333333324\n2006-01-29 22:00:00.0\t-2.261111111111111\n2006-01-29 23:00:00.0\t-0.7333333333333335\n2006-01-30 00:00:00.0\t-0.6055555555555555\n2006-01-30 01:00:00.0\t-1.288888888888889\n2006-01-30 02:00:00.0\t-1.311111111111111\n2006-01-30 03:00:00.0\t-1.2611111111111108\n2006-01-30 04:00:00.0\t-1.1777777777777783\n2006-01-30 05:00:00.0\t-1.1555555555555546\n2006-01-30 06:00:00.0\t-1.722222222222223\n2006-01-30 07:00:00.0\t-1.2000000000000002\n2006-01-30 08:00:00.0\t-0.06666666666666722\n2006-01-30 09:00:00.0\t0.033333333333334596\n2006-01-30 10:00:00.0\t1.0444444444444458\n2006-01-30 11:00:00.0\t1.1166666666666656\n2006-01-30 12:00:00.0\t1.1500000000000001\n2006-01-30 13:00:00.0\t1.1333333333333329\n2006-01-30 14:00:00.0\t1.1333333333333329\n2006-01-30 15:00:00.0\t1.1444444444444457\n2006-01-30 16:00:00.0\t0.09444444444444539\n2006-01-30 17:00:00.0\t0.09444444444444539\n2006-01-30 18:00:00.0\t0.0611111111111108\n2006-01-30 19:00:00.0\t0.07222222222222364\n2006-01-30 20:00:00.0\t0.0500000000000019\n2006-01-30 21:00:00.0\t-0.016666666666667298\n2006-01-30 22:00:00.0\t-0.06666666666666722\n2006-01-30 23:00:00.0\t-0.06666666666666722\n2006-01-31 00:00:00.0\t-2.005555555555555\n2006-01-31 01:00:00.0\t-0.022222222222221748\n2006-01-31 02:00:00.0\t-0.022222222222221748\n2006-01-31 03:00:00.0\t-0.005555555555556424\n2006-01-31 04:00:00.0\t-0.1388888888888889\n2006-01-31 05:00:00.0\t-0.18333333333333238\n2006-01-31 06:00:00.0\t-0.22777777777777786\n2006-01-31 07:00:00.0\t-0.21111111111111056\n2006-01-31 08:00:00.0\t-1.2277777777777783\n2006-01-31 09:00:00.0\t-1.1444444444444437\n2006-01-31 10:00:00.0\t-1.2055555555555566\n2006-01-31 11:00:00.0\t-2.2222222222222223\n2006-01-31 12:00:00.0\t-2.0500000000000007\n2006-01-31 13:00:00.0\t-2.177777777777779\n2006-01-31 14:00:00.0\t-2.177777777777779\n2006-01-31 15:00:00.0\t-2.1000000000000005\n2006-01-31 16:00:00.0\t-2.2000000000000006\n2006-01-31 17:00:00.0\t-2.2666666666666657\n2006-01-31 18:00:00.0\t-2.305555555555555\n2006-01-31 19:00:00.0\t-2.4000000000000004\n2006-01-31 20:00:00.0\t-1.9333333333333336\n2006-01-31 21:00:00.0\t-1.9222222222222227\n2006-01-31 22:00:00.0\t-2.077777777777777\n2006-01-31 23:00:00.0\t-2.144444444444444\n2006-02-01 00:00:00.0\t-2.4666666666666672\n2006-02-01 01:00:00.0\t-2.7444444444444454\n2006-02-01 02:00:00.0\t-2.1888888888888896\n2006-02-01 03:00:00.0\t-2.0388888888888896\n2006-02-01 04:00:00.0\t-2.6722222222222216\n2006-02-01 05:00:00.0\t-2.605555555555556\n2006-02-01 06:00:00.0\t-2.4333333333333327\n2006-02-01 07:00:00.0\t-2.472222222222222\n2006-02-01 08:00:00.0\t-2.4055555555555546\n2006-02-01 09:00:00.0\t-2.233333333333333\n2006-02-01 10:00:00.0\t-2.261111111111111\n2006-02-01 11:00:00.0\t-1.1722222222222218\n2006-02-01 12:00:00.0\t-1.072222222222222\n2006-02-01 13:00:00.0\t-0.033333333333332625\n2006-02-01 14:00:00.0\t-0.033333333333332625\n2006-02-01 15:00:00.0\t-1.0222222222222221\n2006-02-01 16:00:00.0\t-2.3111111111111113\n2006-02-01 17:00:00.0\t-2.3111111111111113\n2006-02-01 18:00:00.0\t-1.377777777777778\n2006-02-01 19:00:00.0\t-2.383333333333333\n2006-02-01 20:00:00.0\t-1.9222222222222227\n2006-02-01 21:00:00.0\t-1.900000000000001\n2006-02-01 22:00:00.0\t-2.383333333333333\n2006-02-01 23:00:00.0\t-2.383333333333333\n2006-02-02 00:00:00.0\t-4.466666666666666\n2006-02-02 01:00:00.0\t-2.9166666666666665\n2006-02-02 02:00:00.0\t-2.894444444444445\n2006-02-02 03:00:00.0\t-2.8777777777777778\n2006-02-02 04:00:00.0\t-2.9166666666666665\n2006-02-02 05:00:00.0\t-2.938888888888888\n2006-02-02 06:00:00.0\t-2.8888888888888884\n2006-02-02 07:00:00.0\t-2.938888888888888\n2006-02-02 08:00:00.0\t-2.894444444444445\n2006-02-02 09:00:00.0\t-2.938888888888888\n2006-02-02 10:00:00.0\t-2.894444444444445\n2006-02-02 11:00:00.0\t-2.872222222222223\n2006-02-02 12:00:00.0\t-2.7999999999999994\n2006-02-02 13:00:00.0\t-2.844444444444445\n2006-02-02 14:00:00.0\t-3.8388888888888886\n2006-02-02 15:00:00.0\t-3.75\n2006-02-02 16:00:00.0\t-3.8388888888888886\n2006-02-02 17:00:00.0\t-3.888888888888889\n2006-02-02 18:00:00.0\t-3.855555555555556\n2006-02-02 19:00:00.0\t-3.888888888888889\n2006-02-02 20:00:00.0\t-4.400000000000001\n2006-02-02 21:00:00.0\t-4.4222222222222225\n2006-02-02 22:00:00.0\t-4.349999999999999\n2006-02-02 23:00:00.0\t-4.861111111111111\n2006-02-03 00:00:00.0\t-3.5000000000000004\n2006-02-03 01:00:00.0\t-4.861111111111111\n2006-02-03 02:00:00.0\t-4.349999999999999\n2006-02-03 03:00:00.0\t-4.361111111111112\n2006-02-03 04:00:00.0\t-4.883333333333333\n2006-02-03 05:00:00.0\t-3.9111111111111105\n2006-02-03 06:00:00.0\t-4.022222222222221\n2006-02-03 07:00:00.0\t-3.861111111111111\n2006-02-03 08:00:00.0\t-3.861111111111111\n2006-02-03 09:00:00.0\t-3.927777777777778\n2006-02-03 10:00:00.0\t-2.822222222222221\n2006-02-03 11:00:00.0\t-2.822222222222221\n2006-02-03 12:00:00.0\t-2.4055555555555546\n2006-02-03 13:00:00.0\t-2.244444444444444\n2006-02-03 14:00:00.0\t-2.244444444444444\n2006-02-03 15:00:00.0\t-2.7888888888888888\n2006-02-03 16:00:00.0\t-2.7999999999999994\n2006-02-03 17:00:00.0\t-2.7999999999999994\n2006-02-03 18:00:00.0\t-2.8499999999999996\n2006-02-03 19:00:00.0\t-2.822222222222221\n2006-02-03 20:00:00.0\t-3.3333333333333335\n2006-02-03 21:00:00.0\t-3.3888888888888897\n2006-02-03 22:00:00.0\t-3.4000000000000004\n2006-02-03 23:00:00.0\t-3.4000000000000004\n2006-02-04 00:00:00.0\t-4.855555555555554\n2006-02-04 01:00:00.0\t-3.9111111111111105\n2006-02-04 02:00:00.0\t-3.9111111111111105\n2006-02-04 03:00:00.0\t-4.377777777777776\n2006-02-04 04:00:00.0\t-4.4222222222222225\n2006-02-04 05:00:00.0\t-3.9333333333333322\n2006-02-04 06:00:00.0\t-3.9722222222222214\n2006-02-04 07:00:00.0\t-3.9333333333333322\n2006-02-04 08:00:00.0\t-3.9555555555555566\n2006-02-04 09:00:00.0\t-3.922222222222222\n2006-02-04 10:00:00.0\t-3.883333333333332\n2006-02-04 11:00:00.0\t-3.8388888888888886\n2006-02-04 12:00:00.0\t-3.811111111111111\n2006-02-04 13:00:00.0\t-3.8166666666666678\n2006-02-04 14:00:00.0\t-3.8166666666666678\n2006-02-04 15:00:00.0\t-2.922222222222223\n2006-02-04 16:00:00.0\t-2.7999999999999994\n2006-02-04 17:00:00.0\t-2.822222222222221\n2006-02-04 18:00:00.0\t-2.9444444444444446\n2006-02-04 19:00:00.0\t-2.844444444444445\n2006-02-04 20:00:00.0\t-3.355555555555555\n2006-02-04 21:00:00.0\t-3.4611111111111112\n2006-02-04 22:00:00.0\t-3.888888888888889\n2006-02-04 23:00:00.0\t-3.888888888888889\n2006-02-05 00:00:00.0\t-8.47777777777778\n2006-02-05 01:00:00.0\t-5.466666666666667\n2006-02-05 02:00:00.0\t-6.533333333333335\n2006-02-05 03:00:00.0\t-7.699999999999999\n2006-02-05 04:00:00.0\t-6.022222222222222\n2006-02-05 05:00:00.0\t-6.122222222222222\n2006-02-05 06:00:00.0\t-6.105555555555554\n2006-02-05 07:00:00.0\t-6.072222222222222\n2006-02-05 08:00:00.0\t-5.005555555555556\n2006-02-05 09:00:00.0\t-4.722222222222222\n2006-02-05 10:00:00.0\t-3.7722222222222217\n2006-02-05 11:00:00.0\t-2.666666666666667\n2006-02-05 12:00:00.0\t-2.116666666666666\n2006-02-05 13:00:00.0\t-2.1333333333333333\n2006-02-05 14:00:00.0\t-2.1611111111111114\n2006-02-05 15:00:00.0\t-2.6833333333333322\n2006-02-05 16:00:00.0\t-5.01111111111111\n2006-02-05 17:00:00.0\t-6.072222222222222\n2006-02-05 18:00:00.0\t-6.116666666666668\n2006-02-05 19:00:00.0\t-7.105555555555555\n2006-02-05 20:00:00.0\t-7.222222222222222\n2006-02-05 21:00:00.0\t-7.805555555555555\n2006-02-05 22:00:00.0\t-8.77222222222222\n2006-02-05 23:00:00.0\t-8.77222222222222\n2006-02-06 00:00:00.0\t-10.305555555555555\n2006-02-06 01:00:00.0\t-9.444444444444445\n2006-02-06 02:00:00.0\t-9.444444444444445\n2006-02-06 03:00:00.0\t-9.572222222222223\n2006-02-06 04:00:00.0\t-9.86111111111111\n2006-02-06 05:00:00.0\t-9.833333333333334\n2006-02-06 06:00:00.0\t-9.883333333333333\n2006-02-06 07:00:00.0\t-8.75\n2006-02-06 08:00:00.0\t-7.083333333333333\n2006-02-06 09:00:00.0\t-5.050000000000001\n2006-02-06 10:00:00.0\t-3.888888888888889\n2006-02-06 11:00:00.0\t-2.7777777777777777\n2006-02-06 12:00:00.0\t-2.2777777777777786\n2006-02-06 13:00:00.0\t-2.2222222222222223\n2006-02-06 14:00:00.0\t-2.755555555555556\n2006-02-06 15:00:00.0\t-2.7444444444444454\n2006-02-06 16:00:00.0\t-5.077777777777778\n2006-02-06 17:00:00.0\t-6.066666666666667\n2006-02-06 18:00:00.0\t-6.983333333333333\n2006-02-06 19:00:00.0\t-7.316666666666667\n2006-02-06 20:00:00.0\t-7.938888888888887\n2006-02-06 21:00:00.0\t-8.577777777777778\n2006-02-06 22:00:00.0\t-9.53888888888889\n2006-02-06 23:00:00.0\t-11.083333333333334\n2006-02-07 00:00:00.0\t-5.5777777777777775\n2006-02-07 01:00:00.0\t-10.805555555555555\n2006-02-07 02:00:00.0\t-11.822222222222223\n2006-02-07 03:00:00.0\t-11.855555555555556\n2006-02-07 04:00:00.0\t-13.416666666666666\n2006-02-07 05:00:00.0\t-13.927777777777777\n2006-02-07 06:00:00.0\t-12.88888888888889\n2006-02-07 07:00:00.0\t-10.172222222222224\n2006-02-07 08:00:00.0\t-7.26111111111111\n2006-02-07 09:00:00.0\t-5.044444444444443\n2006-02-07 10:00:00.0\t-2.7999999999999994\n2006-02-07 11:00:00.0\t-2.2000000000000006\n2006-02-07 12:00:00.0\t-1.2000000000000002\n2006-02-07 13:00:00.0\t-1.0888888888888895\n2006-02-07 14:00:00.0\t-1.1333333333333329\n2006-02-07 15:00:00.0\t-2.0722222222222224\n2006-02-07 16:00:00.0\t-2.2000000000000006\n2006-02-07 17:00:00.0\t-2.7333333333333343\n2006-02-07 18:00:00.0\t-2.7722222222222213\n2006-02-07 19:00:00.0\t-2.755555555555556\n2006-02-07 20:00:00.0\t-2.755555555555556\n2006-02-07 21:00:00.0\t-2.7888888888888888\n2006-02-07 22:00:00.0\t-2.755555555555556\n2006-02-07 23:00:00.0\t-4.333333333333333\n2006-02-08 00:00:00.0\t-2.000000000000001\n2006-02-08 01:00:00.0\t-4.355555555555556\n2006-02-08 02:00:00.0\t-4.3277777777777775\n2006-02-08 03:00:00.0\t-4.277777777777778\n2006-02-08 04:00:00.0\t-3.7944444444444434\n2006-02-08 05:00:00.0\t-2.7777777777777777\n2006-02-08 06:00:00.0\t-2.8999999999999995\n2006-02-08 07:00:00.0\t-2.7333333333333343\n2006-02-08 08:00:00.0\t-2.155555555555555\n2006-02-08 09:00:00.0\t-2.116666666666666\n2006-02-08 10:00:00.0\t0.044444444444443496\n2006-02-08 11:00:00.0\t0.0\n2006-02-08 12:00:00.0\t-0.8666666666666659\n2006-02-08 13:00:00.0\t-0.994444444444444\n2006-02-08 14:00:00.0\t0.09444444444444539\n2006-02-08 15:00:00.0\t0.09444444444444539\n2006-02-08 16:00:00.0\t0.09444444444444539\n2006-02-08 17:00:00.0\t0.07222222222222364\n2006-02-08 18:00:00.0\t-0.905555555555555\n2006-02-08 19:00:00.0\t-1.0388888888888894\n2006-02-08 20:00:00.0\t-1.5499999999999996\n2006-02-08 21:00:00.0\t-1.466666666666667\n2006-02-08 22:00:00.0\t-1.5277777777777777\n2006-02-08 23:00:00.0\t-1.5777777777777777\n2006-02-09 00:00:00.0\t-2.9611111111111104\n2006-02-09 01:00:00.0\t-2.0833333333333335\n2006-02-09 02:00:00.0\t-1.5777777777777777\n2006-02-09 03:00:00.0\t-1.0500000000000003\n2006-02-09 04:00:00.0\t-1.1166666666666676\n2006-02-09 05:00:00.0\t-2.1333333333333333\n2006-02-09 06:00:00.0\t-1.8722222222222227\n2006-02-09 07:00:00.0\t-2.1333333333333333\n2006-02-09 08:00:00.0\t-1.6444444444444448\n2006-02-09 09:00:00.0\t-1.3555555555555563\n2006-02-09 10:00:00.0\t-0.994444444444444\n2006-02-09 11:00:00.0\t0.0500000000000019\n2006-02-09 12:00:00.0\t0.22777777777777589\n2006-02-09 13:00:00.0\t2.2666666666666657\n2006-02-09 14:00:00.0\t1.2444444444444456\n2006-02-09 15:00:00.0\t0.3777777777777776\n2006-02-09 16:00:00.0\t-0.9333333333333331\n2006-02-09 17:00:00.0\t-1.0222222222222221\n2006-02-09 18:00:00.0\t-1.1833333333333327\n2006-02-09 19:00:00.0\t-2.177777777777779\n2006-02-09 20:00:00.0\t-1.6944444444444449\n2006-02-09 21:00:00.0\t-1.9166666666666663\n2006-02-09 22:00:00.0\t-2.783333333333334\n2006-02-09 23:00:00.0\t-2.783333333333334\n2006-02-10 00:00:00.0\t-1.2777777777777781\n2006-02-10 01:00:00.0\t-2.805555555555556\n2006-02-10 02:00:00.0\t-2.7333333333333343\n2006-02-10 03:00:00.0\t-2.7611111111111106\n2006-02-10 04:00:00.0\t-2.7111111111111104\n2006-02-10 05:00:00.0\t-2.2000000000000006\n2006-02-10 06:00:00.0\t-2.766666666666667\n2006-02-10 07:00:00.0\t-2.6888888888888887\n2006-02-10 08:00:00.0\t-2.527777777777778\n2006-02-10 09:00:00.0\t-2.0111111111111115\n2006-02-10 10:00:00.0\t-0.8833333333333333\n2006-02-10 11:00:00.0\t-0.9111111111111114\n2006-02-10 12:00:00.0\t-0.39444444444444493\n2006-02-10 13:00:00.0\t0.22222222222222143\n2006-02-10 14:00:00.0\t0.2444444444444432\n2006-02-10 15:00:00.0\t0.4833333333333319\n2006-02-10 16:00:00.0\t0.17777777777777792\n2006-02-10 17:00:00.0\t0.044444444444443496\n2006-02-10 18:00:00.0\t-0.0777777777777781\n2006-02-10 19:00:00.0\t-1.0888888888888895\n2006-02-10 20:00:00.0\t-1.0388888888888894\n2006-02-10 21:00:00.0\t-1.5444444444444452\n2006-02-10 22:00:00.0\t-1.4999999999999996\n2006-02-10 23:00:00.0\t-1.4999999999999996\n2006-02-11 00:00:00.0\t-4.249999999999999\n2006-02-11 01:00:00.0\t-0.994444444444444\n2006-02-11 02:00:00.0\t-1.594444444444445\n2006-02-11 03:00:00.0\t-1.8055555555555556\n2006-02-11 04:00:00.0\t-2.1500000000000004\n2006-02-11 05:00:00.0\t-2.127777777777777\n2006-02-11 06:00:00.0\t-2.411111111111111\n2006-02-11 07:00:00.0\t-1.0388888888888894\n2006-02-11 08:00:00.0\t-0.04999999999999992\n2006-02-11 09:00:00.0\t0.027777777777776198\n2006-02-11 10:00:00.0\t0.022222222222221748\n2006-02-11 11:00:00.0\t0.022222222222221748\n2006-02-11 12:00:00.0\t0.23888888888888873\n2006-02-11 13:00:00.0\t0.11666666666666714\n2006-02-11 14:00:00.0\t1.1388888888888873\n"
+          },
+          {
+            "type": "HTML",
+            "data": "<div class=\"result-alert alert-warning\" role=\"alert\"><button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\"><span aria-hidden=\"true\">&times;</span></button><strong>Output is truncated</strong> to 1000 rows. Learn more about <strong>zeppelin.spark.maxResult</strong></div>\n"
+          }
+        ]
+      }
+    },
+    {
+      "user": "anonymous",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "scatterChart",
+              "height": 300,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "Formatted Date": "string",
+                      "Temp_Prom": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                },
+                "multiBarChart": {
+                  "rotate": {
+                    "degree": "-45"
+                  },
+                  "xLabelStatus": "default"
+                },
+                "stackedAreaChart": {
+                  "rotate": {
+                    "degree": "-45"
+                  },
+                  "xLabelStatus": "default"
+                },
+                "lineChart": {
+                  "rotate": {
+                    "degree": "-45"
+                  },
+                  "xLabelStatus": "default"
+                }
+              },
+              "commonSetting": {},
+              "keys": [],
+              "groups": [],
+              "values": [
+                {
+                  "name": "Temp_Prom",
+                  "index": 1,
+                  "aggr": "sum"
+                }
+              ]
+            },
+            "helium": {}
+          }
+        },
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://10.0.5.2:4040/jobs/job?id=88",
+              "$$hashKey": "object:10592"
+            },
+            {
+              "jobUrl": "http://10.0.5.2:4040/jobs/job?id=89",
+              "$$hashKey": "object:10593"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1752111509399_421982872",
+      "id": "paragraph_1752111509399_421982872",
+      "dateCreated": "2025-07-10T01:38:29+0000",
+      "status": "FINISHED",
+      "focus": true,
+      "$$hashKey": "object:6234",
+      "text": "//consulta de chat\r\nval año = 2016\r\n\r\nval dfAnio = dfWeather\r\n  .filter(\r\n    year(col(\"Formatted Date\")) === año \r\n  )\r\n\r\nz.show(\r\n  dfAnio\r\n    .groupBy(to_date(col(\"Formatted Date\")).alias(\"Fecha\"))\r\n    .agg(avg(\"Temperature (C)\").alias(\"Temp_Prom\"))\r\n    .orderBy(\"Fecha\")\r\n)\r\n",
+      "dateUpdated": "2025-07-10T01:51:12+0000",
+      "dateFinished": "2025-07-10T01:51:00+0000",
+      "dateStarted": "2025-07-10T01:51:00+0000",
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "Fecha\tTemp_Prom\n2016-01-01\t-4.883101851851852\n2016-01-02\t-4.509027777777777\n2016-01-03\t-5.978472222222223\n2016-01-04\t-7.556018518518518\n2016-01-05\t-3.4250000000000003\n2016-01-06\t-0.615740740740741\n2016-01-07\t-0.9770833333333333\n2016-01-08\t-2.1717592592592596\n2016-01-09\t1.7893518518518514\n2016-01-10\t3.61875\n2016-01-11\t9.049074074074074\n2016-01-12\t6.403240740740741\n2016-01-13\t3.6307870370370368\n2016-01-14\t3.915046296296295\n2016-01-15\t2.2805555555555554\n2016-01-16\t-0.021296296296296428\n2016-01-17\t-2.6643518518518516\n2016-01-18\t-2.836574074074074\n2016-01-19\t-3.449074074074074\n2016-01-20\t-3.776157407407407\n2016-01-21\t-2.3141203703703703\n2016-01-22\t-5.0055555555555555\n2016-01-23\t-4.854166666666666\n2016-01-24\t-2.716435185185185\n2016-01-25\t0.21504629629629643\n2016-01-26\t2.5615740740740733\n2016-01-27\t2.2699074074074077\n2016-01-28\t5.532407407407408\n2016-01-29\t2.6511574074074074\n2016-01-30\t3.2916666666666665\n2016-01-31\t7.145601851851851\n2016-02-01\t7.033101851851851\n2016-02-02\t8.770601851851852\n2016-02-03\t8.249537037037037\n2016-02-04\t3.883333333333333\n2016-02-05\t2.0317129629629633\n2016-02-06\t2.7405092592592593\n2016-02-07\t4.160879629629629\n2016-02-08\t7.177083333333333\n2016-02-09\t10.314583333333333\n2016-02-10\t7.3018518518518505\n2016-02-11\t4.648148148148148\n2016-02-12\t4.604398148148148\n2016-02-13\t6.369212962962962\n2016-02-14\t9.639120370370367\n2016-02-15\t9.034722222222221\n2016-02-16\t5.986805555555556\n2016-02-17\t7.771064814814814\n2016-02-18\t8.428935185185184\n2016-02-19\t5.6997685185185185\n2016-02-20\t3.75949074074074\n2016-02-21\t6.577777777777778\n2016-02-22\t10.203472222222224\n2016-02-23\t10.031481481481483\n2016-02-24\t5.2071759259259265\n2016-02-25\t3.203009259259259\n2016-02-26\t3.1106481481481474\n2016-02-27\t3.213194444444445\n2016-02-28\t6.979166666666665\n2016-02-29\t9.918518518518518\n2016-03-01\t5.910185185185186\n2016-03-02\t4.523148148148148\n2016-03-03\t6.383333333333333\n2016-03-04\t6.471527777777779\n2016-03-05\t6.85324074074074\n2016-03-06\t8.68912037037037\n2016-03-07\t9.35486111111111\n2016-03-08\t6.518055555555556\n2016-03-09\t6.3062499999999995\n2016-03-10\t8.741435185185185\n2016-03-11\t8.828935185185186\n2016-03-12\t7.490972222222221\n2016-03-13\t8.331712962962962\n2016-03-14\t5.469907407407408\n2016-03-15\t2.3456018518518524\n2016-03-16\t6.163194444444443\n2016-03-17\t6.536574074074074\n2016-03-18\t6.932407407407407\n2016-03-19\t6.547916666666665\n2016-03-20\t7.210416666666668\n2016-03-21\t7.684490740740742\n2016-03-22\t7.626851851851852\n2016-03-23\t4.664814814814815\n2016-03-24\t5.988657407407408\n2016-03-25\t4.9914351851851855\n2016-03-26\t7.850462962962964\n2016-03-27\t6.97199074074074\n2016-03-28\t8.054166666666669\n2016-03-29\t11.96851851851852\n2016-03-30\t13.203472222222222\n2016-03-31\t15.931481481481482\n2016-04-01\t15.762268518518518\n2016-04-02\t10.253009259259258\n2016-04-03\t13.041898148148148\n2016-04-04\t16.211111111111112\n2016-04-05\t18.53634259259259\n2016-04-06\t17.961805555555554\n2016-04-07\t18.211805555555554\n2016-04-08\t15.801851851851852\n2016-04-09\t12.019675925925924\n2016-04-10\t10.637037037037038\n2016-04-11\t12.028472222222222\n2016-04-12\t14.365277777777777\n2016-04-13\t16.271527777777777\n2016-04-14\t15.184953703703703\n2016-04-15\t14.109722222222222\n2016-04-16\t17.44675925925926\n2016-04-17\t18.265509259259264\n2016-04-18\t18.105324074074073\n2016-04-19\t12.04050925925926\n2016-04-20\t10.830555555555554\n2016-04-21\t10.999537037037038\n2016-04-22\t13.988194444444444\n2016-04-23\t15.39837962962963\n2016-04-24\t9.16990740740741\n2016-04-25\t5.759027777777778\n2016-04-26\t7.914583333333334\n2016-04-27\t9.631712962962965\n2016-04-28\t9.32800925925926\n2016-04-29\t9.73425925925926\n2016-04-30\t11.342824074074073\n2016-05-01\t14.05300925925926\n2016-05-02\t13.976620370370371\n2016-05-03\t13.72939814814815\n2016-05-04\t14.436574074074075\n2016-05-05\t15.939583333333337\n2016-05-06\t15.745833333333332\n2016-05-07\t15.668518518518516\n2016-05-08\t14.058564814814815\n2016-05-09\t15.580787037037036\n2016-05-10\t14.418518518518516\n2016-05-11\t16.330324074074074\n2016-05-12\t16.814583333333335\n2016-05-13\t16.280787037037033\n2016-05-14\t14.771296296296294\n2016-05-15\t10.480324074074073\n2016-05-16\t10.25162037037037\n2016-05-17\t10.385185185185184\n2016-05-18\t12.417361111111113\n2016-05-19\t14.258564814814816\n2016-05-20\t15.807870370370372\n2016-05-21\t17.34097222222222\n2016-05-22\t19.10949074074074\n2016-05-23\t21.42523148148148\n2016-05-24\t16.31087962962963\n2016-05-25\t17.46851851851852\n2016-05-26\t19.287962962962965\n2016-05-27\t21.365046296296295\n2016-05-28\t22.446527777777774\n2016-05-29\t22.89166666666667\n2016-05-30\t22.00532407407408\n2016-05-31\t21.012962962962963\n2016-06-01\t19.15671296296296\n2016-06-02\t17.440972222222218\n2016-06-03\t18.09490740740741\n2016-06-04\t18.431250000000002\n2016-06-05\t19.112499999999997\n2016-06-06\t20.50324074074074\n2016-06-07\t17.617592592592594\n2016-06-08\t18.211574074074075\n2016-06-09\t19.640277777777776\n2016-06-10\t18.943750000000005\n2016-06-11\t20.425231481481486\n2016-06-12\t18.59953703703703\n2016-06-13\t17.70208333333333\n2016-06-14\t20.069444444444446\n2016-06-15\t18.70277777777778\n2016-06-16\t23.321527777777785\n2016-06-17\t26.24675925925926\n2016-06-18\t21.916666666666668\n2016-06-19\t20.706944444444446\n2016-06-20\t21.825462962962963\n2016-06-21\t21.751388888888886\n2016-06-22\t25.037731481481483\n2016-06-23\t26.543287037037032\n2016-06-24\t27.464120370370367\n2016-06-25\t26.839120370370356\n2016-06-26\t25.998379629629625\n2016-06-27\t22.83263888888889\n2016-06-28\t20.17453703703704\n2016-06-29\t21.9375\n2016-06-30\t24.045601851851856\n2016-07-01\t25.269212962962957\n2016-07-02\t26.05972222222222\n2016-07-03\t23.34861111111111\n2016-07-04\t21.196527777777778\n2016-07-05\t22.356018518518525\n2016-07-06\t21.457175925925927\n2016-07-07\t19.191203703703703\n2016-07-08\t21.12037037037037\n2016-07-09\t22.19537037037037\n2016-07-10\t23.07800925925926\n2016-07-11\t25.001620370370375\n2016-07-12\t27.325000000000003\n2016-07-13\t28.371296296296293\n2016-07-14\t19.369675925925925\n2016-07-15\t18.13310185185186\n2016-07-16\t16.408101851851853\n2016-07-17\t15.972916666666668\n2016-07-18\t21.256018518518516\n2016-07-19\t20.713194444444444\n2016-07-20\t20.956712962962964\n2016-07-21\t22.416666666666668\n2016-07-22\t23.8912037037037\n2016-07-23\t26.431018518518517\n2016-07-24\t26.555324074074075\n2016-07-25\t24.838888888888885\n2016-07-26\t21.590740740740742\n2016-07-27\t24.137500000000006\n2016-07-28\t23.583796296296295\n2016-07-29\t22.99467592592592\n2016-07-30\t25.07638888888889\n2016-07-31\t26.07638888888889\n2016-08-01\t23.081712962962968\n2016-08-02\t21.11550925925926\n2016-08-03\t21.582175925925924\n2016-08-04\t23.80648148148148\n2016-08-05\t26.583564814814817\n2016-08-06\t22.112962962962964\n2016-08-07\t22.49791666666667\n2016-08-08\t21.132175925925925\n2016-08-09\t22.653935185185187\n2016-08-10\t21.57546296296297\n2016-08-11\t14.824074074074074\n2016-08-12\t15.918287037037034\n2016-08-13\t17.408333333333335\n2016-08-14\t20.66689814814815\n2016-08-15\t22.9875\n2016-08-16\t22.762037037037043\n2016-08-17\t18.490509259259255\n2016-08-18\t19.469675925925923\n2016-08-19\t21.755787037037038\n2016-08-20\t22.834953703703707\n2016-08-21\t24.440509259259258\n2016-08-22\t17.078240740740743\n2016-08-23\t19.990972222222222\n2016-08-24\t21.736574074074074\n2016-08-25\t22.049999999999997\n2016-08-26\t22.475925925925925\n2016-08-27\t22.599768518518516\n2016-08-28\t22.963425925925932\n2016-08-29\t23.556712962962965\n2016-08-30\t23.02013888888889\n2016-08-31\t20.856944444444444\n2016-09-01\t20.04768518518518\n2016-09-02\t20.68819444444444\n2016-09-03\t21.46412037037037\n2016-09-04\t22.31851851851852\n2016-09-05\t16.446296296296296\n2016-09-06\t17.572222222222223\n2016-09-07\t21.373379629629625\n2016-09-08\t22.499537037037044\n2016-09-09\t22.730092592592587\n2016-09-10\t22.942592592592593\n2016-09-11\t23.81689814814814\n2016-09-12\t23.327314814814816\n2016-09-13\t19.936805555555555\n2016-09-14\t20.00810185185185\n2016-09-15\t20.98935185185185\n2016-09-16\t22.24282407407408\n2016-09-17\t21.186111111111106\n2016-09-18\t20.363425925925927\n2016-09-19\t17.12083333333333\n2016-09-20\t16.01712962962963\n2016-09-21\t10.511342592592591\n2016-09-22\t12.81087962962963\n2016-09-23\t12.946990740740743\n2016-09-24\t14.568055555555553\n2016-09-25\t14.021759259259255\n2016-09-26\t14.09074074074074\n2016-09-27\t13.082407407407407\n2016-09-28\t15.069907407407412\n2016-09-29\t16.849999999999998\n2016-09-30\t16.994212962962962\n2016-10-01\t16.96828703703704\n2016-10-02\t17.524305555555557\n2016-10-03\t14.774074074074077\n2016-10-04\t11.304398148148147\n2016-10-05\t8.57199074074074\n2016-10-06\t7.568981481481482\n2016-10-07\t7.942592592592594\n2016-10-08\t7.16574074074074\n2016-10-09\t7.317592592592593\n2016-10-10\t8.929166666666665\n2016-10-11\t8.207175925925926\n2016-10-12\t8.603935185185183\n2016-10-13\t8.550925925925927\n2016-10-14\t9.160879629629628\n2016-10-15\t11.853472222222223\n2016-10-16\t12.311574074074073\n2016-10-17\t10.777777777777779\n2016-10-18\t9.438194444444443\n2016-10-19\t9.096990740740742\n2016-10-20\t10.107175925925928\n2016-10-21\t10.103703703703703\n2016-10-22\t8.97777777777778\n2016-10-23\t8.365046296296295\n2016-10-24\t11.640972222222224\n2016-10-25\t13.98587962962963\n2016-10-26\t11.189351851851853\n2016-10-27\t6.933796296296296\n2016-10-28\t6.539814814814815\n2016-10-29\t9.07824074074074\n2016-10-30\t6.79074074074074\n2016-10-31\t6.909953703703704\n2016-11-01\t7.785185185185182\n2016-11-02\t7.995601851851853\n2016-11-03\t7.433796296296296\n2016-11-04\t7.247685185185184\n2016-11-05\t7.062962962962962\n2016-11-06\t6.879398148148149\n2016-11-07\t6.6967592592592595\n2016-11-08\t6.515046296296297\n2016-11-09\t6.335648148148146\n2016-11-10\t6.156712962962964\n2016-11-11\t5.97986111111111\n2016-11-12\t5.804166666666666\n2016-11-13\t5.631018518518519\n2016-11-14\t5.458796296296296\n2016-11-15\t5.28888888888889\n2016-11-16\t5.119444444444444\n2016-11-17\t4.952546296296297\n2016-11-18\t4.788657407407406\n2016-11-19\t4.625231481481482\n2016-11-20\t4.464351851851852\n2016-11-21\t4.3055555555555545\n2016-11-22\t4.148842592592593\n2016-11-23\t3.9944444444444436\n2016-11-24\t3.8409722222222222\n2016-11-25\t3.690972222222222\n2016-11-26\t3.5428240740740744\n2016-11-27\t3.3965277777777776\n2016-11-28\t3.25300925925926\n2016-11-29\t3.112037037037036\n2016-11-30\t2.9729166666666664\n2016-12-01\t2.8370370370370366\n2016-12-02\t2.7032407407407404\n2016-12-03\t2.572222222222223\n2016-12-04\t2.4439814814814818\n2016-12-05\t2.317361111111112\n2016-12-06\t2.194212962962963\n2016-12-07\t2.073148148148148\n2016-12-08\t1.9557870370370374\n2016-12-09\t1.8409722222222227\n2016-12-10\t1.729398148148148\n2016-12-11\t1.6192129629629628\n2016-12-12\t1.5122685185185185\n2016-12-13\t1.4092592592592597\n2016-12-14\t1.3076388888888888\n2016-12-15\t1.2115740740740741\n2016-12-16\t1.1159722222222221\n2016-12-17\t1.0243055555555558\n2016-12-18\t0.9354166666666668\n2016-12-19\t0.8500000000000004\n2016-12-20\t0.7668981481481483\n2016-12-21\t0.6879629629629629\n2016-12-22\t0.611574074074074\n2016-12-23\t0.5386574074074071\n2016-12-24\t0.4689814814814816\n2016-12-25\t0.4023148148148154\n2016-12-26\t0.3384259259259261\n2016-12-27\t0.27800925925925923\n2016-12-28\t0.2222222222222224\n2016-12-29\t0.16782407407407407\n2016-12-30\t0.11759259259259254\n2016-12-31\t0.11352657004830935\n"
+          },
+          {
+            "type": "TEXT",
+            "data": "\u001b[1m\u001b[34maño\u001b[0m: \u001b[1m\u001b[32mInt\u001b[0m = 2016\n\u001b[1m\u001b[34mdfAnio\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.Dataset[org.apache.spark.sql.Row]\u001b[0m = [Formatted Date: timestamp, Summary: string ... 10 more fields]\n"
+          }
+        ]
+      }
+    },
+    {
+      "user": "anonymous",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "scatterChart",
+              "height": 300,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "Summary": "string",
+                      "count": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                },
+                "multiBarChart": {
+                  "rotate": {
+                    "degree": "-45"
+                  },
+                  "xLabelStatus": "default"
+                },
+                "stackedAreaChart": {
+                  "rotate": {
+                    "degree": "-45"
+                  },
+                  "xLabelStatus": "default"
+                },
+                "lineChart": {
+                  "rotate": {
+                    "degree": "-45"
+                  },
+                  "xLabelStatus": "default"
+                }
+              },
+              "commonSetting": {},
+              "keys": [
+                {
+                  "name": "Summary",
+                  "index": 0,
+                  "aggr": "sum"
+                }
+              ],
+              "groups": [],
+              "values": [
+                {
+                  "name": "count",
+                  "index": 1,
+                  "aggr": "sum"
+                }
+              ]
+            },
+            "helium": {}
+          }
+        },
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://10.0.5.2:4040/jobs/job?id=90",
+              "$$hashKey": "object:11754"
+            },
+            {
+              "jobUrl": "http://10.0.5.2:4040/jobs/job?id=91",
+              "$$hashKey": "object:11755"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1752111995525_880613658",
+      "id": "paragraph_1752111995525_880613658",
+      "dateCreated": "2025-07-10T01:46:35+0000",
+      "status": "FINISHED",
+      "focus": true,
+      "$$hashKey": "object:8132",
+      "text": "z.show(\r\n  dfWeather\r\n    .groupBy(\"Summary\")\r\n    .count()\r\n    .orderBy($\"count\".desc)\r\n)\r\n",
+      "dateUpdated": "2025-07-10T01:53:14+0000",
+      "dateFinished": "2025-07-10T01:52:22+0000",
+      "dateStarted": "2025-07-10T01:52:21+0000",
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "Summary\tcount\nPartly Cloudy\t31733\nMostly Cloudy\t28094\nOvercast\t16597\nClear\t10890\nFoggy\t7148\nBreezy and Overcast\t528\nBreezy and Mostly Cloudy\t516\nBreezy and Partly Cloudy\t386\nDry and Partly Cloudy\t86\nWindy and Partly Cloudy\t67\nLight Rain\t63\nBreezy\t54\nWindy and Overcast\t45\nHumid and Mostly Cloudy\t40\nDrizzle\t39\nBreezy and Foggy\t35\nWindy and Mostly Cloudy\t35\nDry\t34\nHumid and Partly Cloudy\t17\nDry and Mostly Cloudy\t14\nRain\t10\nWindy\t8\nHumid and Overcast\t7\nWindy and Foggy\t4\nBreezy and Dry\t1\nWindy and Dry\t1\nDangerously Windy and Partly Cloudy\t1\n"
+          }
+        ]
+      }
+    },
+    {
+      "user": "anonymous",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "pieChart",
+              "height": 300,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "Precip Type": "string",
+                      "Temp_Promedio": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                },
+                "stackedAreaChart": {
+                  "rotate": {
+                    "degree": "-45"
+                  },
+                  "xLabelStatus": "default"
+                },
+                "multiBarChart": {
+                  "rotate": {
+                    "degree": "-45"
+                  },
+                  "xLabelStatus": "default"
+                },
+                "lineChart": {
+                  "rotate": {
+                    "degree": "-45"
+                  },
+                  "xLabelStatus": "default"
+                }
+              },
+              "commonSetting": {},
+              "keys": [
+                {
+                  "name": "Precip Type",
+                  "index": 0,
+                  "aggr": "sum"
+                }
+              ],
+              "groups": [],
+              "values": [
+                {
+                  "name": "Temp_Promedio",
+                  "index": 1,
+                  "aggr": "sum"
+                }
+              ]
+            },
+            "helium": {}
+          }
+        },
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://10.0.5.2:4040/jobs/job?id=92",
+              "$$hashKey": "object:12686"
+            },
+            {
+              "jobUrl": "http://10.0.5.2:4040/jobs/job?id=93",
+              "$$hashKey": "object:12687"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1752112341718_866385148",
+      "id": "paragraph_1752112341718_866385148",
+      "dateCreated": "2025-07-10T01:52:21+0000",
+      "status": "FINISHED",
+      "focus": true,
+      "$$hashKey": "object:10611",
+      "text": "z.show(\r\n  dfWeather\r\n    .groupBy(\"Precip Type\")\r\n    .agg(avg(\"Temperature (C)\").alias(\"Temp_Promedio\"))\r\n    .orderBy($\"Temp_Promedio\".desc)\r\n)\r\n",
+      "dateUpdated": "2025-07-10T01:54:16+0000",
+      "dateFinished": "2025-07-10T01:53:58+0000",
+      "dateStarted": "2025-07-10T01:53:58+0000",
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "Precip Type\tTemp_Promedio\nrain\t13.852989311826704\nnull\t10.393015258972705\nsnow\t-3.270884677620091\n"
+          }
+        ]
+      }
+    },
+    {
+      "user": "anonymous",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "multiBarChart",
+              "height": 300,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "Summary": "string",
+                      "Velocidad_Viento_Promedio": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                },
+                "multiBarChart": {
+                  "rotate": {
+                    "degree": "-45"
+                  },
+                  "xLabelStatus": "default"
+                },
+                "stackedAreaChart": {
+                  "rotate": {
+                    "degree": "-45"
+                  },
+                  "xLabelStatus": "default"
+                },
+                "lineChart": {
+                  "rotate": {
+                    "degree": "-45"
+                  },
+                  "xLabelStatus": "default"
+                }
+              },
+              "commonSetting": {},
+              "keys": [
+                {
+                  "name": "Summary",
+                  "index": 0,
+                  "aggr": "sum"
+                }
+              ],
+              "groups": [],
+              "values": [
+                {
+                  "name": "Velocidad_Viento_Promedio",
+                  "index": 1,
+                  "aggr": "sum"
+                }
+              ]
+            },
+            "helium": {}
+          }
+        },
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://10.0.5.2:4040/jobs/job?id=94",
+              "$$hashKey": "object:13794"
+            },
+            {
+              "jobUrl": "http://10.0.5.2:4040/jobs/job?id=95",
+              "$$hashKey": "object:13795"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1752112438075_1953336354",
+      "id": "paragraph_1752112438075_1953336354",
+      "dateCreated": "2025-07-10T01:53:58+0000",
+      "status": "FINISHED",
+      "focus": true,
+      "$$hashKey": "object:11773",
+      "text": "z.show(\r\n  dfWeather\r\n    .groupBy(\"Summary\")\r\n    .agg(avg(\"Wind Speed (km/h)\").alias(\"Velocidad_Viento_Promedio\"))\r\n    .orderBy($\"Velocidad_Viento_Promedio\".desc)\r\n)\r\n",
+      "dateUpdated": "2025-07-10T01:55:08+0000",
+      "dateFinished": "2025-07-10T01:54:51+0000",
+      "dateStarted": "2025-07-10T01:54:51+0000",
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "Summary\tVelocidad_Viento_Promedio\nDangerously Windy and Partly Cloudy\t63.852599999999995\nWindy and Partly Cloudy\t44.61093731343282\nWindy and Foggy\t44.1784\nWindy and Overcast\t43.3784088888889\nWindy and Mostly Cloudy\t43.117640000000016\nWindy\t42.165900000000015\nWindy and Dry\t40.25\nBreezy and Dry\t33.81\nBreezy and Partly Cloudy\t33.532796373057\nBreezy and Foggy\t33.47788000000001\nBreezy and Mostly Cloudy\t33.38634534883718\nBreezy and Overcast\t33.037565909090915\nBreezy\t32.143948148148134\nDry\t14.71397941176471\nLight Rain\t14.67348888888889\nDry and Mostly Cloudy\t13.66775\nDry and Partly Cloudy\t12.304518604651163\nOvercast\t12.02773795866728\nMostly Cloudy\t11.4184037872855\nDrizzle\t10.356428205128205\nPartly Cloudy\t10.115129795481062\nHumid and Mostly Cloudy\t10.0588775\nHumid and Partly Cloudy\t9.938435294117648\nHumid and Overcast\t9.7405\nClear\t8.141351606979036\nFoggy\t7.171649048684991\nRain\t5.797610000000001\n"
+          }
+        ]
+      }
+    },
+    {
+      "user": "anonymous",
+      "progress": 0,
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1752112491366_640707315",
+      "id": "paragraph_1752112491366_640707315",
+      "dateCreated": "2025-07-10T01:54:51+0000",
+      "status": "READY",
+      "focus": true,
+      "$$hashKey": "object:12703"
+    }
+  ],
+  "name": "Parcial1",
+  "id": "2KYAAU2QM",
+  "defaultInterpreterGroup": "spark",
+  "version": "0.11.0",
+  "noteParams": {},
+  "noteForms": {},
+  "angularObjects": {},
+  "config": {
+    "isZeppelinNotebookCronEnable": false,
+    "looknfeel": "default",
+    "personalizedMode": "false"
+  },
+  "info": {},
+  "path": "/Parcial1"
+}
